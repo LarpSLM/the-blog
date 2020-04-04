@@ -1,17 +1,15 @@
 import React, {Component} from 'react';
 import style from './style.css'
-import img from './user.jpg';
-import {NavLink, Route, Switch} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import AboutPage from "../about";
 import NewPost from "../newPostPage";
-import Header from "../../components/header";
+import HeaderContainer from "../../components/header/headerContainter";
 
 export default class DefaultPage extends Component {
-
     render() {
         return (
             <div className={style.content}>
-                <Header/>
+                <HeaderContainer user={this.props.user} logout={this.props.logout}/>
                 <div className={style.page}>
                     <Switch>
                         <Route path='/about' exact={true} component={AboutPage}/>

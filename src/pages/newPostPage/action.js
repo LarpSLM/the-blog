@@ -12,6 +12,8 @@ export const changeMessagePost = (value) => {
     }
 };
 
-export const sendNewPost = () => ({
-    type: 'ADD-POST_SEND-NEW-POST'
-});
+export const sendNewPost = () => {
+    return {
+        type: 'ADD-POST_SEND-NEW-POST',
+    }
+};

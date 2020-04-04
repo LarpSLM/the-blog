@@ -12,13 +12,12 @@ class SignIn extends Component {
     static propTypes = {
         dataForm: PropTypes.object.isRequired,
         changeFieldAction: PropTypes.func.isRequired,
+        signInAction: PropTypes.func.isRequired,
     };
 
     onSubmit = () => {
         const { dataForm } = this.props;
-        API.user.signIn(dataForm)
-            .then(response => {console.log(response.data)})
-            .catch(error => {console.log(error)})
+        this.props.signInAction(dataForm);
     };
 
     render() {

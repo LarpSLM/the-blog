@@ -5,15 +5,18 @@ import signUpReducer from "./pages/sign-up/reduce";
 import {connectRouter, routerMiddleware} from 'connected-react-router';
 import {history} from '../src/history';
 import addPostReducer from "./pages/newPostPage/reducer";
+import thunk from 'redux-thunk';
+import appReducer from "./app/reducer";
 
 const logger = createLogger({
   collapsed: true
 });
 
-const middlewares = [routerMiddleware(history), logger];
+const middlewares = [routerMiddleware(history), logger, thunk];
 
 const createRootReducer = (history) => combineReducers({
   router: connectRouter(history),
+  app: appReducer,
   signIn: signInReducer,
   singUp: signUpReducer,
   newPostPage: addPostReducer

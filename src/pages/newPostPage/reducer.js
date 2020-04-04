@@ -1,25 +1,33 @@
 let initialState = {
-    title: '',
-    content: ''
+    dataForm: {
+        title: '',
+        content: ''
+    }
 };
 
 export default function addPostReducer(state = initialState, action){
     switch (action.type) {
         case 'ADD-POST_CHANGE_POST_TITLE':
             return {
-                ...state,
-                title: action.title
+                dataForm: {
+                    ...state.dataForm,
+                    title: action.title
+                }
             };
         case 'ADD-POST_CHANGE_POST_MESSAGE':
             return {
-                ...state,
-                content: action.content
+                dataForm: {
+                    ...state.dataForm,
+                    content: action.content
+                }
             };
         case 'ADD-POST_SEND-NEW-POST':
             return {
-                ...state,
-                title: '',
-                content: '',
+                dataForm: {
+                    ...state.dataForm,
+                    title: '',
+                    content: '',
+                }
             };
         default: return state;
     }

@@ -15,3 +15,18 @@ export function signUp(data) {
         data
     })
 }
+
+export function auth() {
+    return axiosFetch({
+        url: 'users/auth',
+        method: 'GET',
+    })
+}
+
+export function logOut() {
+    return axiosFetch({
+        url: 'users/signout',
+        method: 'GET',
+    })
+
+}
