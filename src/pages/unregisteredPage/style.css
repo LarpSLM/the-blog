@@ -29,7 +29,7 @@
 
 .form h1 {
     margin: 0;
-    font-size: calc(3em + 3vw);
+    font-size: calc(3em + 2vw);
     line-height: 100%;
     font-family: 'Permanent Marker', sans-serif;
     text-align: center;
@@ -48,7 +48,7 @@
     }
 
     .form h1 {
-        font-size: calc(4em + 3vw);
+        font-size: calc(4em + 2vw);
     }
 }
 

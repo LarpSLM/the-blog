@@ -5,6 +5,7 @@
     margin: 0 0 5px 0;
     color: #e1643b;
     font-weight: bold;
+    font-size: .8em;
 }
 
 .input {
@@ -19,7 +20,7 @@
 .input input {
     width: 100%;
     background: #ffffff;
-    height: 2em;
+    height: 1.6em;
     border: none;
     font-size: 1em;
     color: #2b2b2b;

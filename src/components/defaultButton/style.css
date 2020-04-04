@@ -1,11 +1,11 @@
 button {
-    height: 50px;
+    height: 40px;
     border: none;
     border-radius: 5px;
     min-width: 50%;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 1em;
+    font-size: .8em;
     background: #ededed;
     cursor: pointer;
     padding: 0 10px;
