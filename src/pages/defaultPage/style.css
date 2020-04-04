@@ -1,0 +1,18 @@
+*:focus {
+    outline: none;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 100vh;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.page {
+    /*padding: 20px;*/
+    /*box-sizing: border-box;*/
+}
+

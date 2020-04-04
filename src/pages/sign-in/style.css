@@ -1,0 +1,111 @@
+.input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: calc(2em - 20px);
+}
+
+.inputDiv {
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+.input p {
+    text-transform: uppercase;
+    text-align: left;
+    margin: 0 0 5px 0;
+    color: #e1643b;
+    font-weight: bold;
+}
+
+.input input {
+    width: 100%;
+    background: #ffffff;
+    height: 2em;
+    border: none;
+    font-size: 1em;
+    color: #2b2b2b;
+    padding: 0 20px;
+    border-radius: 5px;
+}
+
+.buttonSing {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10%;
+}
+
+.right {
+    text-align: left;
+}
+
+.left {
+    text-align: right;
+}
+
+.left a button {
+    color: #e21d26;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .input {
+        margin-top: calc(4em + 66px);
+    }
+
+    .inputDiv {
+        width: 100%;
+        margin-bottom: calc(1em + 20px);
+    }
+
+    .left a button {
+        min-width: 100%;
+    }
+
+    .right button {
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .input {
+        margin-top: calc(4em + 61px);
+    }
+
+    .inputDiv{
+        width: 100%;
+        margin-bottom: 1em;
+    }
+
+}
+
+@media screen and (max-width: 415px) {
+
+    .input {
+        margin-top: calc(4em + 9px);
+    }
+
+    .buttonSing {
+        grid-template-columns: 1fr;
+        grid-row-gap: .5em;
+    }
+
+    .input p {
+        font-size: .8em;
+    }
+
+    .input input {
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 360px){
+    .input {
+        margin-bottom: calc(1em + 4px)
+    }
+
+    .input p {
+        margin: 0;
+    }
+}

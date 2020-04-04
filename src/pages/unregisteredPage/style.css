@@ -1,0 +1,95 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+*:focus {
+    outline: none;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("background.jpg") no-repeat center fixed;
+    background-size: cover;
+}
+
+.form {
+    width: 60%;
+    height: 60vh;
+    color: #fafafa;
+    background-color: #ededed;
+    padding: 0 7vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.form h1 {
+    margin: 0;
+    font-size: calc(3em + 3vw);
+    line-height: 100%;
+    font-family: 'Permanent Marker', sans-serif;
+    text-align: center;
+    color: black;
+    text-shadow: 5px 5px 10px #d0d0d0, -5px -5px 10px #ffffff;
+}
+
+.components {
+    width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 1024px){
+    .wrapper {
+        background-position: left;
+    }
+
+    .form h1 {
+        font-size: calc(4em + 3vw);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px){
+    .form {
+        width: 70%;
+        height: 75vh;
+        /*padding: 100px 50px;*/
+    }
+
+}
+
+@media screen and (max-width: 760px){
+
+    .form {
+        width: 70%;
+        height: 75vh;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 415px){
+    .form {
+        width: 80vw;
+        height: 80vh;
+    }
+
+    .form h1 {
+        font-size: 3.1em;
+    }
+
+}
+
+@media screen and (max-width: 350px){
+
+    .form {
+        padding: 20px;
+    }
+
+    .form h1 {
+        font-size: 2.5em;
+    }
+
+}

@@ -1,0 +1,17 @@
+button {
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    min-width: 50%;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1em;
+    background: #ededed;
+    cursor: pointer;
+    padding: 0 10px;
+    box-shadow: 5px 5px 10px #d0d0d0, -5px -5px 10px #ffffff;
+}
+
+button:active {
+    box-shadow: none;
+}
