@@ -11,6 +11,7 @@ class SignUp extends Component {
     static propTypes = {
         dataForm: PropTypes.object.isRequired,
         changeFieldAction: PropTypes.func.isRequired,
+        signUp: PropTypes.func.isRequired,
     };
 
     render() {
@@ -58,7 +59,9 @@ class SignUp extends Component {
                         </Link>
                     </div>
                     <div className={style.right}>
-                        <DefaultButton name='Sing-Up'/>
+                        <DefaultButton onClick={() => {
+                            this.props.signUp(this.props.dataForm)
+                        }} name='Sing-Up'/>
                     </div>
                 </div>
             </>

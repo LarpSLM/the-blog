@@ -6,7 +6,7 @@ const initState = {
         email: '',
         firstName: '',
         password: '',
-    }
+    },
 };
 
 function merge(state, someObject) {
@@ -23,6 +23,16 @@ export default function signUpReducer(state = initState, action) {
                     [action.payload.fieldId]: action.payload.value
                 }
             });
+        case 'SIGN-UP_SUCCESS':
+            return {
+                ...state,
+                dataForm: {
+                    login: '',
+                    email: '',
+                    firstName: '',
+                    password: '',
+                },
+            };
         default:
             return state;
     }

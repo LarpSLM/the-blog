@@ -1,4 +1,5 @@
 import API from 'src/API';
+import { push } from 'connected-react-router'
 
 export const auth = () => {
     return async function (dispatch) {
@@ -15,7 +16,6 @@ export const auth = () => {
 export const logOut = () => {
     return async function (dispatch) {
         try {
-            debugger
             const response = await API.user.logOut();
             dispatch({type: 'APPLICATION-LOGOUT', payload: response})
         } catch (error) {

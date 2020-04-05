@@ -4,14 +4,7 @@ import SignUp from "../sign-up";
 import {Switch, Route} from 'react-router-dom';
 import SignIn from "../sign-in";
 
-export class MainPage extends Component {
-    // onFocus = (event) => {
-    //     event.target.style.outline = 'none';
-    // };
-    //
-    // onBlur = (event) => {
-    //     event.target.style.outline = 'none'
-    // };
+class MainPage extends Component {
 
     render() {
         return (
