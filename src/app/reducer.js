@@ -5,6 +5,7 @@ const initState = {
 export default function appReducer(state = initState, action) {
     switch (action.type) {
         case 'SIGN-IN_SUCCESS':
+        case 'SIGN-UP_SUCCESS':
         case 'APPLICATION-AUTH':
             return {
                 ...state,

@@ -16,6 +16,5 @@ export const signInAction = (dataForm) => {
     }catch (error) {
       dispatch({type: 'SIGN-IN_FAIL'});
     }
-
   };
 };

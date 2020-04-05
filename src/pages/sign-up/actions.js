@@ -12,8 +12,7 @@ export const signUp = (dataForm) => {
             dispatch({type: 'SIGN-UP_REQUEST'});
             const response = await API.user.signUp(dataForm);
             dispatch({type: 'SIGN-UP_SUCCESS', payload: response.data});
-            const responseSignIn = await API.user.signIn({login: dataForm.login, password: dataForm.password});
-            dispatch({type: 'SIGN-IN_SUCCESS', payload: responseSignIn.data});
+            dispatch({type: 'HEADER_CHANGE_ACTIVE_LINK', payload: 'home'});
             dispatch(push('/'));
         } catch (e) {
             dispatch({type: 'SIGN-IN_FAIL'});

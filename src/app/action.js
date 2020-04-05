@@ -17,7 +17,9 @@ export const logOut = () => {
     return async function (dispatch) {
         try {
             const response = await API.user.logOut();
-            dispatch({type: 'APPLICATION-LOGOUT', payload: response})
+            dispatch({type: 'APPLICATION-LOGOUT', payload: response});
+            dispatch({type: 'HEADER_CHANGE_ACTIVE_LINK', payload: 'home'});
+            dispatch(push('/'))
         } catch (error) {
             console.log(error)
         }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import style from './style.css';
-import {Link, NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import DefaultButton from "../defaultButton";
 
 export default class Header extends Component {
@@ -19,11 +19,16 @@ export default class Header extends Component {
 
                 </div>
                 <div className={style.nav}>
-                    <NavLink to='/'>Home</NavLink>
-                    <NavLink to='/about'>About</NavLink>
-                    {this.props.login === 'NoName'
-                        ? <NavLink to='/auth/sign-up'>Registration</NavLink>
-                        : <NavLink to='/new-post'>Add post</NavLink>
+                    {
+                        this.props.link.map(el => {
+                            return <Link key={el.id}
+                                         to={el.to}
+                                         id={el.id}
+                                         className={el.className}
+                                         onClick={(e) => {
+                                             this.props.activeLink(e.target.id);
+                                         }}>{el.name}</Link>
+                        })
                     }
                 </div>
                 <div>

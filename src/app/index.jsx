@@ -16,7 +16,9 @@ class App extends Component {
             <div>
                 <Switch>
                     <Route path='/auth' component={UnregisteredPage}/>
-                    <DefaultPage user={this.props.user} logout={this.props.logOut}/>
+                    <Route path='/' render={() => {
+                        return <DefaultPage user={this.props.user} logout={this.props.logOut}/>
+                    }}/>
                 </Switch>
             </div>
         );

@@ -9,7 +9,10 @@ export default class DefaultPage extends Component {
     render() {
         return (
             <div className={style.content}>
-                <HeaderContainer user={this.props.user} logout={this.props.logout}/>
+                <HeaderContainer user={this.props.user}
+                                 logout={this.props.logout}
+                                 activeLink={this.props.activeLink}
+                />
                 <div className={style.page}>
                     <Switch>
                         <Route path='/about' exact={true} component={AboutPage}/>
