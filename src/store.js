@@ -8,6 +8,8 @@ import addPostReducer from "./pages/newPostPage/reducer";
 import thunk from 'redux-thunk';
 import appReducer from "./app/reducer";
 import defaultPageReducer from "./components/header/reducer";
+import postsReducer from "./pages/allPosts/reducer";
+import singlePostReducer from "./pages/post/reducer";
 
 const logger = createLogger({
   collapsed: true
@@ -21,7 +23,9 @@ const createRootReducer = (history) => combineReducers({
   signIn: signInReducer,
   singUp: signUpReducer,
   defaultPage: defaultPageReducer,
-  newPostPage: addPostReducer
+  newPostPage: addPostReducer,
+  allPosts: postsReducer,
+  post: singlePostReducer
 });
 
 

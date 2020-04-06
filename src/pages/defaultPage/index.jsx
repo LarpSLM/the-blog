@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import style from './style.css'
 import {Route, Switch} from "react-router-dom";
-import AboutPage from "../about";
-import NewPost from "../newPostPage";
 import HeaderContainer from "../../components/header/headerContainter";
+import About from "src/pages/about";
+import NewPost from "src/pages/newPostPage";
+import allPosts from "src/pages/allPosts";
+import Post from 'src/pages/post'
 
 export default class DefaultPage extends Component {
     render() {
@@ -15,8 +17,10 @@ export default class DefaultPage extends Component {
                 />
                 <div className={style.page}>
                     <Switch>
-                        <Route path='/about' exact={true} component={AboutPage}/>
+                        <Route path='/' exact={true} component={allPosts}/>
+                        <Route path='/about' exact={true} component={About}/>
                         <Route path='/new-post' exact={true} component={NewPost}/>
+                        <Route path='/post/:id' exact={true} component={Post}/>
                     </Switch>
                 </div>
                 <div className={style.bottomMenu}>

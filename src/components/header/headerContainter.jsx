@@ -65,7 +65,6 @@ function getLink(user, id, arr) {
 }
 
 function HeaderContainer(props) {
-    console.log(props.match);
     const user = props.user;
     const arr = getLink(user, props.activeLink, arrLink);
     if (user !== undefined && user !== null) {

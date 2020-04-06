@@ -12,8 +12,8 @@
 }
 
 .page {
-    /*padding: 20px;*/
-    /*box-sizing: border-box;*/
+    height: 100vh;
+    overflow: auto;
 }
 
 .bottomMenu {
