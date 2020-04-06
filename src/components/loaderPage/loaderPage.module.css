@@ -1,0 +1,41 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /*background: url("background.jpg") no-repeat center fixed;*/
+    /*background-size: cover;*/
+}
+
+.form {
+    width: 60%;
+    height: 60vh;
+    background-color: #ededed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form p {
+    font-family: 'Permanent Marker', sans-serif;
+    font-size: 2em;
+    color: #2b2b2b;
+    margin: 1.5rem auto 0;
+    text-shadow:  20px 20px 40px #c9c9c9,
+    -20px -20px 40px #ffffff;
+    line-height: 100%;
+}
+
+.loader {
+    height: 200px;
+    width: 200px;
+    border-radius: 50px;
+    box-shadow:  20px 20px 40px #c9c9c9,
+    -20px -20px 40px #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

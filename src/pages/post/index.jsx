@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import * as Actions from "./actions";
 import style from "../allPosts/style.css";
-import Loader from "../../components/loader/loader";
+import LoaderPage from "../../components/loaderPage/loaderPage";
 
 class Posts extends Component {
     componentDidMount() {
@@ -24,7 +24,7 @@ class Posts extends Component {
                             <div className={style.title}>{data.title}</div>
                             <div className={style.content}>{data.content}</div>
                         </div>
-                        : <Loader/>
+                        : <LoaderPage/>
                 }
             </div>
         )
