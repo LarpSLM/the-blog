@@ -10,8 +10,14 @@ export default function SinglePost(props) {
                     <img src={props.img} alt="no-img"/>
                 </Link>
                 <div className={style.likes}>
-                    <i className="far fa-heart"></i>
-                    {props.likesCount}
+                    <button>
+                        <i className="far fa-heart"></i>
+                        <span>{props.likesCount}</span>
+                    </button>
+                    <button>
+                        <i className="fas fa-heart-broken"></i>
+                        <span>{props.dislikesCount}</span>
+                    </button>
                 </div>
             </div>
             <Link to={`/post/${props.id}`}

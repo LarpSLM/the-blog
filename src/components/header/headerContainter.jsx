@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './index';
-import avatar from './user.jpg'
+import avatar from 'src/assets/user.jpg';
 import {connect} from "react-redux";
 import * as Action from "./action";
 import style from './style.css'

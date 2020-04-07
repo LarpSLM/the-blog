@@ -31,6 +31,7 @@ class AllPosts extends Component {
                                            number={el.postNumber}
                                            content={el.content}
                                            likesCount={el.likesCount}
+                                           dislikesCount={el.dislikesCount}
                                            avatar={avatar} //el.author.avatar
                                            img={PostIMG()}/>
                     })}

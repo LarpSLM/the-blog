@@ -31,6 +31,7 @@ class PostsContainer extends Component {
                                   data={data.date.slice(0, 10)}
                                   number={data.postNumber}
                                   content={data.content}
+                                  dislikesCount={data.dislikesCount}
                                   likesCount={data.likesCount}
                                   avatar={avatar} //data.author.avatar
                                   img={PostIMG()}/>

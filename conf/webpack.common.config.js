@@ -27,11 +27,7 @@ export default new Config().merge({
         exclude: /node_modules/,
       },
       {
-        test: /\.svg$/,
-        loader: 'svg-inline-loader'
-      },
-      {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|jpe?g|gif|svg)$/i,
         use: [
           {
             loader: 'file-loader',

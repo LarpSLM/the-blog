@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./loaderPage.module.css"
-import LoadIMG from "./loaderPage.svg";
+import Loader from "../loader/loader";
 
 
 function LoaderPage() {
@@ -8,7 +8,7 @@ function LoaderPage() {
         <div className={style.wrapper}>
             <div className={style.form}>
                 <div className={style.loader}>
-                    <img src={LoadIMG} alt=""/>
+                    <Loader/>
                 </div>
                 <p>Loading</p>
             </div>
