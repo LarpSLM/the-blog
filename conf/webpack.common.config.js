@@ -7,7 +7,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import pathApp from './pathApp';
 
 export default new Config().merge({
-  entry: 'src/indexr.jsx',
+  entry: 'src/index.jsx',
   output: {
     path: path.resolve(process.cwd(), 'public'),
     publicPath: '/',
@@ -27,7 +27,11 @@ export default new Config().merge({
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/i,
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
             loader: 'file-loader',
