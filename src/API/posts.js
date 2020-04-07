@@ -14,3 +14,11 @@ export function getPostById(id) {
         method: 'GET',
     })
 }
+
+export function sendNewPost(data) {
+    return axiosFetch({
+        url: 'posts/',
+        method: 'POST',
+        data
+    })
+}

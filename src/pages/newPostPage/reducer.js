@@ -21,7 +21,7 @@ export default function addPostReducer(state = initialState, action){
                     content: action.content
                 }
             };
-        case 'ADD-POST_SEND-NEW-POST':
+        case 'NEW-POST-PAGE-SUCCESS':
             return {
                 dataForm: {
                     ...state.dataForm,

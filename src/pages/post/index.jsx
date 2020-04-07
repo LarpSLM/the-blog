@@ -1,40 +1,36 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
-import * as Actions from "./actions";
-import style from "../allPosts/style.css";
-import LoaderPage from "../../components/loaderPage/loaderPage";
+import React from "react";
+import style from "./style.css";
 
-class Posts extends Component {
-    componentDidMount() {
-        const {match} = this.props;
-        this.props.getSinglePostAction(match.params.id)
-    }
-
-    componentWillUnmount() {
-        this.props.unMountPostAction()
-    }
-
-    render() {
-        const {data} = this.props;
-        return (
-            <div>
-                {
-                    data
-                        ? <div className={style.item}>
-                            <div className={style.title}>{data.title}</div>
-                            <div className={style.content}>{data.content}</div>
+export default function Post(props) {
+    return (
+        <div>
+            <h1 className={style.title}>{props.title}</h1>
+            <div className={style.item}>
+                <div className={style.postImg}>
+                    <div className={style.imgOverflow}>
+                        <img src={props.img} alt="no-img"/>
+                        <div>
+                            <div className={style.likes}>
+                                <i className="far fa-heart"></i>
+                                {props.likesCount}
+                            </div>
                         </div>
-                        : <LoaderPage/>
-                }
+                    </div>
+                </div>
+                <div className={style.postInfo}>
+                    <div className={style.after}>
+                        <div className={style.author}>
+                            <div className={style.ava}>
+                                <img src={props.avatar} alt=""/>
+                            </div>
+                            <span>{props.login}</span>
+                        </div>
+                    </div>
+                    <span className={style.after}>{props.data}</span>
+                    <span>№{props.number}</span>
+                </div>
+                <div className={style.content}>{props.content}</div>
             </div>
-        )
-    }
+        </div>
+    )
 }
-
-const mapStateToProps = (state) => {
-    return {
-        data: state.post.data
-    }
-};
-
-export default connect(mapStateToProps, Actions)(Posts);

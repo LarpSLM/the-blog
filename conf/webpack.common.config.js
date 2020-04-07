@@ -7,7 +7,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import pathApp from './pathApp';
 
 export default new Config().merge({
-  entry: 'src/index.jsx',
+  entry: 'src/indexr.jsx',
   output: {
     path: path.resolve(process.cwd(), 'public'),
     publicPath: '/',

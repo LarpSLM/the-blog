@@ -4,8 +4,8 @@ import {Route, Switch} from "react-router-dom";
 import HeaderContainer from "../../components/header/headerContainter";
 import About from "src/pages/about";
 import NewPost from "src/pages/newPostPage";
-import allPosts from "src/pages/allPosts";
-import Post from 'src/pages/post'
+import allPosts from "src/pages/allPosts/indexr";
+import PostsContainer from "../post/indexContainer";
 
 export default class DefaultPage extends Component {
     render() {
@@ -20,7 +20,7 @@ export default class DefaultPage extends Component {
                         <Route path='/' exact={true} component={allPosts}/>
                         <Route path='/about' exact={true} component={About}/>
                         <Route path='/new-post' exact={true} component={NewPost}/>
-                        <Route path='/post/:id' exact={true} component={Post}/>
+                        <Route path='/post/:id' exact={true} component={PostsContainer}/>
                     </Switch>
                 </div>
                 <div className={style.bottomMenu}>
