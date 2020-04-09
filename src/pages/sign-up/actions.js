@@ -14,9 +14,24 @@ export const signUp = (dataForm) => {
             dispatch({type: 'SIGN-UP_SUCCESS', payload: response.data});
             dispatch({type: 'HEADER_CHANGE_ACTIVE_LINK', payload: 'home'});
             dispatch(push('/'));
-        } catch (e) {
-            dispatch({type: 'SIGN-IN_FAIL'});
-            console.log(e)
+        } catch (error) {
+            if(error.response.data) {
+                dispatch({type: 'SIGN-IN_FAIL', payload: error.response.data});
+            }
+            console.log(error)
         }
     }
 };
+
+export const checkLogin = (login) => {
+    return async function (dispatch) {
+        try {
+            dispatch({type: 'SIGN-UP_CHECKLOGIN_REQUEST'});
+            const response = await API.user.checkLogin(login);
+            dispatch({type: 'SIGN-UP_CHECKLOGIN_SUCCESS', payload: response.data})
+        } catch (e) {
+            dispatch({type: 'SIGN-UP_CHECKLOGIN_FAIL'});
+            console.log(e)
+        }
+    }
+}

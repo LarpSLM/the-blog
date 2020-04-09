@@ -30,3 +30,14 @@ export function logOut() {
     })
 
 }
+
+export function checkLogin(data) {
+    return axiosFetch({
+        url: 'users/check-exists/',
+        method: 'POST',
+        data: {
+            login: data
+        }
+    })
+
+}

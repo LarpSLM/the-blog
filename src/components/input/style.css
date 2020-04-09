@@ -1,0 +1,21 @@
+.input {
+    width: 100%;
+    background: #ffffff;
+    height: 1.6em;
+    border: none;
+    font-size: 1em;
+    color: #2b2b2b;
+    padding: 0 20px;
+    border-radius: 5px;
+}
+
+.input.error {
+    border: 2px solid indianred;
+}
+
+@media screen and (max-width: 415px) {
+
+    .input input {
+        height: 30px;
+    }
+}

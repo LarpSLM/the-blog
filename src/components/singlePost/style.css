@@ -128,4 +128,5 @@
     min-height: 0;
     height: auto !important;
     max-height: 6em;
+    white-space: pre;
 }

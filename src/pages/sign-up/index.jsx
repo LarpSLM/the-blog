@@ -14,40 +14,74 @@ class SignUp extends Component {
         signUp: PropTypes.func.isRequired,
     };
 
+    changeIsRequired = (arg) => {
+        if (arg === true) {
+            return <p className={style.error}>is required</p>;
+        } else if (arg === 'not unique'){
+            return <p className={style.error}>not unique</p>
+        }
+    }
+
+    changeErr = (arg) => {
+        if (arg !== false) {
+            return 'error';
+        }
+    }
+
     render() {
+        const {login, email, firstName, password } = this.props.errors;
         return (
             <>
                 <div className={style.input}>
                     <div>
-                        <p>login</p>
+                        <div className={style.placeholder}>
+                            <p>login</p>
+                            {this.changeIsRequired(login)}
+                        </div>
                         <Input
                             id="login"
                             value={this.props.dataForm.login}
                             onChange={this.props.changeFieldAction}
+                            onBlur={() => {
+                                this.props.checkLogin(this.props.dataForm.login);
+                            }}
+                            error={this.changeErr(login)}
                         />
                     </div>
                     <div>
-                        <p>e-mail</p>
+                        <div className={style.placeholder}>
+                            <p>e-mail</p>
+                            {this.changeIsRequired(email)}
+                        </div>
                         <Input
                             id="email"
                             value={this.props.dataForm.email}
                             onChange={this.props.changeFieldAction}
+                            error={this.changeErr(email)}
                         />
                     </div>
                     <div>
-                        <p>firstname</p>
+                        <div className={style.placeholder}>
+                            <p>firstname</p>
+                            {this.changeIsRequired(firstName)}
+                        </div>
                         <Input
                             id="firstName"
                             value={this.props.dataForm.firstName}
                             onChange={this.props.changeFieldAction}
+                            error={this.changeErr(firstName)}
                         />
                     </div>
                     <div>
-                        <p>password</p>
+                        <div className={style.placeholder}>
+                            <p>password</p>
+                            {this.changeIsRequired(password)}
+                        </div>
                         <Input
                             id="password"
                             value={this.props.dataForm.password}
                             onChange={this.props.changeFieldAction}
+                            error={this.changeErr(password)}
                         />
                     </div>
 
@@ -72,6 +106,7 @@ class SignUp extends Component {
 
 const mapStateToProps = (state) => ({
     dataForm: state.singUp.dataForm,
+    errors: state.singUp.errors
 });
 
 export default connect(mapStateToProps, Actions)(SignUp);

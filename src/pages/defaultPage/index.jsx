@@ -19,7 +19,7 @@ export default class DefaultPage extends Component {
                     <Switch>
                         <Route path='/' exact={true} component={allPosts}/>
                         <Route path='/about' exact={true} component={About}/>
-                        <Route path='/new-post' exact={true} component={NewPost}/>
+                        {this.props.user && <Route path='/new-post' exact={true} component={NewPost}/>}
                         <Route path='/post/:id' exact={true} component={PostsContainer}/>
                     </Switch>
                 </div>

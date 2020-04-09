@@ -7,6 +7,12 @@ const initState = {
         firstName: '',
         password: '',
     },
+    errors: {
+        login: false,
+        email: false,
+        firstName: false,
+        password: false,
+    }
 };
 
 function merge(state, someObject) {
@@ -21,6 +27,10 @@ export default function signUpReducer(state = initState, action) {
                 dataForm: {
                     ...state.dataForm,
                     [action.payload.fieldId]: action.payload.value
+                },
+                errors: {
+                    ...state.errors,
+                    [action.payload.fieldId]: false
                 }
             });
         case 'SIGN-UP_SUCCESS':
@@ -33,6 +43,28 @@ export default function signUpReducer(state = initState, action) {
                     password: '',
                 },
             };
+        case 'SIGN-IN_FAIL': {
+            return {
+                ...state,
+                errors: {
+                    ...state.errors,
+                    login: action.payload.login && true,
+                    email: action.payload.email && true,
+                    firstName: action.payload.firstName && true,
+                    password: action.payload.password && true,
+
+                }
+            }
+        }
+        case 'SIGN-UP_CHECKLOGIN_SUCCESS': {
+            return {
+                ...state,
+                errors: {
+                    ...state.errors,
+                    login: action.payload.exists ? 'not unique' : false
+                }
+            }
+        }
         default:
             return state;
     }

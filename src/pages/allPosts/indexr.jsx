@@ -10,13 +10,18 @@ import avatar from "../../assets/user.jpg";
 
 class AllPosts extends Component {
     componentDidMount() {
-        this.props.getPostsAction()
+        this.props.getInitPostsAction();
+        // window.addEventListener("scroll", this.onScroll)
     }
+    //
+    // onScroll = (event) => {
+    //     console.log(event);
+    // }
 
     render() {
         const posts = this.props.posts;
         return (
-            <div className={style.wrapper}>
+            <div className={style.wrapper} onScroll={this.onScroll}>
                 <h1 className={style.header}>
                     All Posts
                 </h1>

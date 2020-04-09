@@ -122,4 +122,5 @@
     color: #737373;
     overflow: hidden;
     height: 100%;
+    white-space: pre;
 }
