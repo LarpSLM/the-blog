@@ -15,30 +15,27 @@ class SignIn extends Component {
     };
 
     onSubmit = () => {
-        const { dataForm } = this.props;
+        const {dataForm} = this.props;
         this.props.signInAction(dataForm);
     };
 
     changeIsRequired = (arg) => {
         switch (arg) {
             case 400:
-            case true:
                 return <p className={style.error}>is required</p>;
-            case 'not found':
-                return <p className={style.error}>not found</p>;
             case 401:
                 return <p className={style.error}>incorrect</p>
         }
     }
 
     changeErr = (arg) => {
-        if (arg !== false && arg !== '') {
+        if (arg !== false) {
             return 'error';
         }
     }
 
     render() {
-        const { login, password} = this.props.errors
+        const {login, password} = this.props.errors
         return (
             <>
                 <div className={style.input}>
@@ -51,9 +48,9 @@ class SignIn extends Component {
                             id="login"
                             value={this.props.dataForm.login}
                             onChange={this.props.changeFieldAction}
-                            onBlur={() => {
-                                this.props.checkLogin(this.props.dataForm.login)
-                            }}
+                            // onBlur={() => {
+                            //     this.props.checkLogin(this.props.dataForm.login)
+                            // }}
                             error={this.changeErr(login)}
                         />
                     </div>

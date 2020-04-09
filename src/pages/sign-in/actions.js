@@ -19,16 +19,3 @@ export const signInAction = (dataForm) => {
     }
   };
 };
-
-export const checkLogin = (login) => {
-  return async function (dispatch) {
-    try {
-      dispatch({type: 'SIGN-IN_CHECKLOGIN_REQUEST'});
-      const response = await API.user.checkLogin(login);
-      dispatch({type: 'SIGN-IN_CHECKLOGIN_SUCCESS', payload: response.data})
-    } catch (e) {
-      dispatch({type: 'SIGN-IN_CHECKLOGIN_FAIL'});
-      console.log(e)
-    }
-  }
-}

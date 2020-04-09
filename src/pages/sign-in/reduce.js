@@ -4,7 +4,7 @@ const initState = {
     password: ''
   },
   errors: {
-    login: '',
+    login: false,
     password: false,
   }
 };
@@ -33,17 +33,8 @@ export default function signInReducer(state = initState, action) {
       return {
         ...state,
         errors: {
-          login: state.errors.login !== false && action.payload.status,
+          login: action.payload.status,
           password: action.payload.status
-        }
-      }
-    }
-    case 'SIGN-IN_CHECKLOGIN_SUCCESS': {
-      return {
-        ...state,
-        errors: {
-          ...state.errors,
-          login: action.payload.exists ? false : 'not found'
         }
       }
     }

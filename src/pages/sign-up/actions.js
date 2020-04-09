@@ -16,7 +16,7 @@ export const signUp = (dataForm) => {
             dispatch(push('/'));
         } catch (error) {
             if(error.response.data) {
-                dispatch({type: 'SIGN-IN_FAIL', payload: error.response.data});
+                dispatch({type: 'SIGN-UP_FAIL', payload: error.response.data});
             }
             console.log(error)
         }

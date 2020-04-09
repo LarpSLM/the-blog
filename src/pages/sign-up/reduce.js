@@ -43,7 +43,7 @@ export default function signUpReducer(state = initState, action) {
                     password: '',
                 },
             };
-        case 'SIGN-IN_FAIL': {
+        case 'SIGN-UP_FAIL': {
             return {
                 ...state,
                 errors: {

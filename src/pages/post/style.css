@@ -7,6 +7,7 @@
     margin: 0 auto;
     padding: 1em 0;
     text-shadow: 5px 5px 10px #d0d0d0, -5px -5px 10px #ffffff;
+    overflow: hidden;
 }
 
 .item {
