@@ -5,6 +5,15 @@
     margin-bottom: calc(2em - 20px);
 }
 
+.placeholder {
+    display: flex;
+    justify-content: space-between;
+}
+
+.placeholder .error {
+    color: #e21d26;
+}
+
 .inputDiv {
     width: 60%;
     margin-bottom: 20px;

@@ -14,7 +14,21 @@ export const signInAction = (dataForm) => {
       dispatch({type: 'SIGN-IN_SUCCESS', payload: response.data});
       dispatch(push('/'));
     }catch (error) {
-      dispatch({type: 'SIGN-IN_FAIL'});
+      if (error.response)
+      dispatch({type: 'SIGN-IN_FAIL', payload: error.response});
     }
   };
 };
+
+export const checkLogin = (login) => {
+  return async function (dispatch) {
+    try {
+      dispatch({type: 'SIGN-IN_CHECKLOGIN_REQUEST'});
+      const response = await API.user.checkLogin(login);
+      dispatch({type: 'SIGN-IN_CHECKLOGIN_SUCCESS', payload: response.data})
+    } catch (e) {
+      dispatch({type: 'SIGN-IN_CHECKLOGIN_FAIL'});
+      console.log(e)
+    }
+  }
+}

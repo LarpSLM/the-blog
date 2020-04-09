@@ -5,7 +5,6 @@ import Input from 'src/components/input';
 import * as Actions from './actions';
 import {Link} from 'react-router-dom';
 import style from './style.css'
-import API from 'src/API'
 import DefaultButton from "../../components/defaultButton";
 
 class SignIn extends Component {
@@ -20,24 +19,54 @@ class SignIn extends Component {
         this.props.signInAction(dataForm);
     };
 
+    changeIsRequired = (arg) => {
+        switch (arg) {
+            case 400:
+            case true:
+                return <p className={style.error}>is required</p>;
+            case 'not found':
+                return <p className={style.error}>not found</p>;
+            case 401:
+                return <p className={style.error}>incorrect</p>
+        }
+    }
+
+    changeErr = (arg) => {
+        if (arg !== false && arg !== '') {
+            return 'error';
+        }
+    }
+
     render() {
+        const { login, password} = this.props.errors
         return (
             <>
                 <div className={style.input}>
                     <div className={style.inputDiv}>
-                        <p>login</p>
+                        <div className={style.placeholder}>
+                            <p>login</p>
+                            {this.changeIsRequired(login)}
+                        </div>
                         <Input
                             id="login"
                             value={this.props.dataForm.login}
                             onChange={this.props.changeFieldAction}
+                            onBlur={() => {
+                                this.props.checkLogin(this.props.dataForm.login)
+                            }}
+                            error={this.changeErr(login)}
                         />
                     </div>
                     <div className={style.inputDiv}>
-                        <p>password</p>
+                        <div className={style.placeholder}>
+                            <p>password</p>
+                            {this.changeIsRequired(password)}
+                        </div>
                         <Input
                             id="password"
                             value={this.props.dataForm.password}
                             onChange={this.props.changeFieldAction}
+                            error={this.changeErr(password)}
                         />
                     </div>
                 </div>
@@ -58,6 +87,7 @@ class SignIn extends Component {
 
 const mapStateToProps = (state) => ({
     dataForm: state.signIn.dataForm,
+    errors: state.signIn.errors
 });
 
 export default connect(mapStateToProps, Actions)(SignIn);
