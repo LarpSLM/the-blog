@@ -45,7 +45,7 @@ class AllPosts extends Component {
                                                content={el.content}
                                                likesCount={el.likesCount}
                                                dislikesCount={el.dislikesCount}
-                                               avatar={avatar} //el.author.avatar
+                                               avatar={`http://school-blog.ru/images/${el.author.avatar}`}
                                                img={el.img}/>
                         })}
                     {

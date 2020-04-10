@@ -60,10 +60,9 @@ function getLink(user, path, arr) {
 export default function HeaderContainer(props) {
     const user = props.user;
     const arr = getLink(user, props.activeLink, arrLink);
-    const url = new RegExp('.')
     if (user !== undefined && user !== null) {
         return <Header login={user.login}
-                       avatar={avatar}
+                       avatar={`http://school-blog.ru/images/${user.avatar}`}
                        button='Log out'
                        logout={props.logout}
                        link={arr}

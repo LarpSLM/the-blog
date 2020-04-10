@@ -33,7 +33,7 @@ class PostsContainer extends Component {
                                   content={data.content}
                                   dislikesCount={data.dislikesCount}
                                   likesCount={data.likesCount}
-                                  avatar={avatar} //data.author.avatar
+                                  avatar={`http://school-blog.ru/images/${data.author.avatar}`}
                                   img={PostIMG()}/>
                         </>
                         : <LoaderPage/>
