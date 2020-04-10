@@ -10,11 +10,11 @@ export default function SinglePost(props) {
                     <img src={props.img} alt="no-img"/>
                 </Link>
                 <div className={style.likes}>
-                    <button>
+                    <button onClick={props.onLike}>
                         <i className="far fa-heart"></i>
-                        <span>{props.likesCount}</span>
+                        <span >{props.likesCount}</span>
                     </button>
-                    <button>
+                    <button onClick={props.onDislike}>
                         <i className="fas fa-heart-broken"></i>
                         <span>{props.dislikesCount}</span>
                     </button>

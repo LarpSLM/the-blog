@@ -44,6 +44,40 @@ export default function postsReducer(state = initState, action) {
                 ...state,
                 isLoading: false
             }
+        case 'INCREASE_LIKE_SUCCESS':
+            return {
+                ...state,
+                posts: state.posts.map(post => { //усложняем себе жизнь вставкой ключа с картинкой, так бы вернули action.payload и всё
+                    if (post.id === action.payload.id) {
+                        for (let key in post) {
+                            if (key === 'img') {
+                                continue;
+                            }
+                            post[key] = action.payload[key];
+                        }
+                        return post
+                    } else {
+                        return post;
+                    }
+                })
+            }
+        case 'INCREASE_DISLIKE_SUCCESS':
+            return {
+                ...state,
+                posts: state.posts.map(post => { //аналогично кейсу выше
+                    if (post.id === action.payload.id) {
+                        for (let key in post) {
+                            if (key === 'img') {
+                                continue;
+                            }
+                            post[key] = action.payload[key];
+                        }
+                        return post
+                    } else {
+                        return post;
+                    }
+                })
+            }
         default:
             return state;
     }

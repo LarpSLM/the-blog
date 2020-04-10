@@ -5,7 +5,7 @@
 
 .allPosts {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 1000px);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1000px));
     justify-content: space-evenly;
 }
 

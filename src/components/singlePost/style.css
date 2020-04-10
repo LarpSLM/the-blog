@@ -4,9 +4,9 @@
     grid-row-gap: .8em;
     text-decoration: none;
     width: 100%;
-    margin-bottom: 5em;
+    margin: 0 auto 5em;
     border-radius: 5px;
-    justify-content: center;
+    padding: 0 50px;
 }
 
 .postImg {

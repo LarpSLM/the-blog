@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import * as Actions from "./actions";
 import LoaderPage from "../../components/loaderPage/loaderPage";
-import avatar from "../../assets/user.jpg";
 import PostIMG from "../../assets/img-api";
 import Post from "./index";
 

@@ -24,6 +24,14 @@ class AllPosts extends Component {
         }
     }
 
+    addLike = (id) => {
+        this.props.addLike(id);
+    }
+
+    addDislike = (id) => {
+        this.props.addDislike(id);
+    }
+
     render() {
         const { isLoading, posts} = this.props;
 
@@ -46,7 +54,17 @@ class AllPosts extends Component {
                                                likesCount={el.likesCount}
                                                dislikesCount={el.dislikesCount}
                                                avatar={`http://school-blog.ru/images/${el.author.avatar}`}
-                                               img={el.img}/>
+                                               img={el.img}
+                                               onLike={() => {
+                                                   this.addLike(el.id)
+                                                 }
+                                               }
+                                               onDislike={() => {
+                                                   this.addDislike(el.id)
+                                                 }
+                                               }
+                            />
+
                         })}
                 </div>
                 {
@@ -63,7 +81,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, Action)(AllPosts);
-
-// function getRandomInt(max) {
-//     return ;
-// } получение рандомной картинки
