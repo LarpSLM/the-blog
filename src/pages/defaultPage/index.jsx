@@ -6,13 +6,19 @@ import About from "src/pages/about";
 import NewPost from "src/pages/newPostPage";
 import allPosts from "src/pages/allPosts/indexr";
 import PostsContainer from "../post/indexContainer";
+import {connect} from "react-redux";
+import * as Action from "./action";
 
-export default class DefaultPage extends Component {
+class DefaultPage extends Component {
+    componentDidMount() {
+        this.props.auth()
+    }
+
     render() {
         return (
             <div className={style.content}>
                 <HeaderContainer user={this.props.user}
-                                 logout={this.props.logout}
+                                 logout={this.props.logOut}
                                  activeLink={this.props.activeLink}
                 />
                 <div className={style.page}>
@@ -32,3 +38,11 @@ export default class DefaultPage extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        user: state.app.user
+    }
+};
+
+export default connect(mapStateToProps, Action)(DefaultPage);

@@ -18,6 +18,10 @@ export default function signInReducer(state = initState, action) {
         dataForm: {
           ...state.dataForm,
           [action.payload.fieldId]: action.payload.value
+        },
+        errors: {
+          ...state.errors,
+          [action.payload.fieldId]: false
         }
       };
     case 'SIGN-IN_SUCCESS': {

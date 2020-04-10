@@ -6,7 +6,7 @@ import {connectRouter, routerMiddleware} from 'connected-react-router';
 import {history} from '../src/history';
 import addPostReducer from "./pages/newPostPage/reducer";
 import thunk from 'redux-thunk';
-import appReducer from "./app/reducer";
+import appReducer from "./pages/defaultPage/reducer";
 import defaultPageReducer from "./components/header/reducer";
 import postsReducer from "./pages/allPosts/reducer";
 import singlePostReducer from "./pages/post/reducer";
