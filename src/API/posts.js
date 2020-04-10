@@ -22,3 +22,17 @@ export function sendNewPost(data) {
         data
     })
 }
+
+export function addLike(id) {
+    return axiosFetch({
+        url: `posts/like/${id}`,
+        method: 'PUT'
+    })
+}
+
+export function addDislike(id) {
+    return axiosFetch({
+        url: `posts/dislike/${id}`,
+        method: 'PUT'
+    })
+}

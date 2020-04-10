@@ -1,19 +1,49 @@
+import PostIMG from 'src/assets/img-api'
+
 let initState = {
-    posts: []
+    posts: [],
+    isLoading: false,
 };
 
-export default function postsReducer (state = initState, action) {
+
+//функция добавления изображений в полученный массив постов
+const modeImg = (arr) => {
+    const copyPayload = []
+    arr.forEach(el => {
+        copyPayload.push(el)
+    })
+    copyPayload.map(el => {
+        el.img = PostIMG();
+    })
+    return copyPayload;
+}
+
+export default function postsReducer(state = initState, action) {
     switch (action.type) {
-        case 'MAIN-PAGE_INIT_GET_POSTS_SUCCESS':
+        case 'ALL-POST_INIT_GET_POSTS_SUCCESS':
             return {
                 ...state,
-                posts: action.payload
+                isLoading: false,
+                posts: modeImg(action.payload),
+
             };
-        case 'MAIN-PAGE_SCROLL_GET_POSTS_SUCCESS':
+        case 'ALL-POST_INIT_GET_POSTS_REQUESTS':
+        case 'ALL-POST_SCROLL_GET_POSTS_REQUESTS':
             return {
                 ...state,
-                posts: [...state.posts, ...action.payload ]
+                isLoading: true,
+            }
+        case 'ALL-POST_SCROLL_GET_POSTS_SUCCESS':
+            return {
+                ...state,
+                posts: [...state.posts, ...(modeImg(action.payload))],
+                isLoading: false,
             };
+        case 'ALL-POST_SCROLL_GET_POSTS_FAIL':
+            return {
+                ...state,
+                isLoading: false
+            }
         default:
             return state;
     }
