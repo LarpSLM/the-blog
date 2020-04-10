@@ -29,10 +29,10 @@ class AllPosts extends Component {
 
         return (
             <div className={style.wrapper} onScroll={this.onScroll}>
-                <div id='all-posts'>
-                    <h1 className={style.header}>
-                        All Posts
-                    </h1>
+                <h1 className={style.header}>
+                    All Posts
+                </h1>
+                <div id='all-posts' className={style.allPosts}>
                     {(posts.length < 1)
                         ? <Loader/>
                         : posts.map(el => {
@@ -48,10 +48,10 @@ class AllPosts extends Component {
                                                avatar={`http://school-blog.ru/images/${el.author.avatar}`}
                                                img={el.img}/>
                         })}
-                    {
-                        (isLoading && posts.length > 0) && <Loader/>
-                    }
                 </div>
+                {
+                    (isLoading && posts.length > 0) && <Loader/>
+                }
             </div>
         )
     }

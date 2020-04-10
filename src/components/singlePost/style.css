@@ -1,11 +1,12 @@
 .item {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(200px, 850px);
     grid-row-gap: .8em;
     text-decoration: none;
-    width: 70%;
-    margin: 0 auto 5em;
+    width: 100%;
+    margin-bottom: 5em;
     border-radius: 5px;
+    justify-content: center;
 }
 
 .postImg {

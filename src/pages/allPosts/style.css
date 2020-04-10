@@ -3,6 +3,12 @@
     height: 100%;
 }
 
+.allPosts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1000px);
+    justify-content: space-evenly;
+}
+
 .header {
     font-size: 3em;
     font-family: 'Permanent Marker', sans-serif;
