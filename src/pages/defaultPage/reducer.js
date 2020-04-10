@@ -1,5 +1,6 @@
 const initState = {
-    user: null
+    user: null,
+    activeLink: 'home'
 };
 
 export default function appReducer(state = initState, action) {
@@ -16,6 +17,11 @@ export default function appReducer(state = initState, action) {
                 ...state,
                 user: null
             };
+        case '@@router/LOCATION_CHANGE':
+            return {
+                ...state,
+                activeLink: action.payload.location.pathname
+            }
         default:
             return state
     }

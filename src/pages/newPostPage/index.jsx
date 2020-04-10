@@ -13,7 +13,6 @@ class NewPost extends Component {
     };
 
     render() {
-        console.log(this.props.newPostPage);
         return (
             <div className={style.wrapper}>
                 <div className={style.form}>

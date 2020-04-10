@@ -41,7 +41,8 @@ class DefaultPage extends Component {
 
 const mapStateToProps = state => {
     return {
-        user: state.app.user
+        user: state.app.user,
+        activeLink: state.app.activeLink
     }
 };
 

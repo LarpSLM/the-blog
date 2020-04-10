@@ -21,13 +21,11 @@ export default class Header extends Component {
                 <div className={style.nav}>
                     {
                         this.props.link.map(el => {
-                            return <Link key={el.id}
+                            return <Link key={el.name}
                                          to={el.to}
                                          id={el.id}
-                                         className={el.className}
-                                         onClick={(e) => {
-                                             this.props.activeLink(e.target.id);
-                                         }}>{el.name}</Link>
+                                         className={el.className}>{el.name}
+                            </Link>
                         })
                     }
                 </div>

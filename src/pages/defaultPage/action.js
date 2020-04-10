@@ -6,7 +6,6 @@ export const auth = () => {
         try {
             const response = await API.user.auth();
             dispatch({type: 'APPLICATION-AUTH', payload: response.data })
-
         } catch (error) {
             console.log(error)
         }
@@ -18,7 +17,6 @@ export const logOut = () => {
         try {
             const response = await API.user.logOut();
             dispatch({type: 'APPLICATION-LOGOUT', payload: response});
-            dispatch({type: 'HEADER_CHANGE_ACTIVE_LINK', payload: 'home'});
             dispatch(push('/'))
         } catch (error) {
             console.log(error)
