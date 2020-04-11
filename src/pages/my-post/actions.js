@@ -4,8 +4,8 @@ export const getInitMyPost = (authorId) => {
     return async function (dispatch) {
         try {
             dispatch({type: 'MY-POST_INIT_REQUEST'});
-            const response = await API.posts.getPostByUser(authorId);
-            dispatch({type: 'MY-POST_INIT_REQUEST_SUCCESS', payload: response});
+            const response = await API.posts.getPostByUser({authorId});
+            dispatch({type: 'MY-POST_INIT_REQUEST_SUCCESS', payload: response.data});
         } catch (e) {
             dispatch({type: 'MY-POST_INIT_REQUEST_FAIL', payload: status});
         }
