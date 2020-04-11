@@ -4,10 +4,11 @@ import {Route, Switch} from "react-router-dom";
 import HeaderContainer from "../../components/header/headerContainter";
 import About from "src/pages/about";
 import NewPost from "src/pages/newPostPage";
-import allPosts from "src/pages/allPosts/indexr";
+import allPosts from "src/pages/allPosts";
 import PostsContainer from "../post/indexContainer";
 import {connect} from "react-redux";
 import * as Action from "./action";
+import MyPosts from "../my-post";
 
 class DefaultPage extends Component {
     componentDidMount() {
@@ -27,6 +28,7 @@ class DefaultPage extends Component {
                         <Route path='/about' exact={true} component={About}/>
                         {this.props.user && <Route path='/new-post' exact={true} component={NewPost}/>}
                         <Route path='/post/:id' exact={true} component={PostsContainer}/>
+                        <Route path='/my-posts' exact={true} component={MyPosts}/>
                     </Switch>
                 </div>
                 <div className={style.bottomMenu}>

@@ -4,7 +4,6 @@ import * as Action from './action';
 import style from './style.css';
 import Loader from "../../components/loader/loader";
 import SinglePost from "../../components/singlePost";
-import avatar from "../../assets/user.jpg";
 
 
 class AllPosts extends Component {
@@ -12,7 +11,7 @@ class AllPosts extends Component {
         this.props.getInitPostsAction();
     }
 
-    onScroll = (event) => {
+    onScroll = () => {
         const { posts, isLoading } = this.props;
         const postsLength = posts.length;
         const pageHeight = document.documentElement.clientHeight;
@@ -34,7 +33,6 @@ class AllPosts extends Component {
 
     render() {
         const { isLoading, posts} = this.props;
-
         return (
             <div className={style.wrapper} onScroll={this.onScroll}>
                 <h1 className={style.header}>

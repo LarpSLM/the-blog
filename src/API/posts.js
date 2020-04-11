@@ -15,6 +15,19 @@ export function getPostById(id) {
     })
 }
 
+export function getPostByUser(authorId) {
+    return axiosFetch({
+        url: 'posts/favourite/',
+        method: 'GET',
+        // params: {
+        //     // authorId: authorId
+        //     offset: 0,
+        //     offsetStep: 30
+        // }
+    })
+
+}
+
 export function sendNewPost(data) {
     return axiosFetch({
         url: 'posts/',
