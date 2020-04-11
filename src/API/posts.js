@@ -15,15 +15,6 @@ export function getPostById(id) {
     })
 }
 
-export function getPostByUser(params) {
-    return axiosFetch({
-        url: 'posts/favourite/',
-        method: 'GET',
-        params
-    })
-
-}
-
 export function sendNewPost(data) {
     return axiosFetch({
         url: 'posts/',

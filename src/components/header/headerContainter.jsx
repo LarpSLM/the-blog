@@ -21,6 +21,10 @@ const arrLink = [
         to: '/new-post/',
     },
     {
+        name: 'Profile',
+        to: '/profile',
+    },
+    {
         name: 'About',
         to: '/about',
     },
@@ -39,7 +43,7 @@ function getLink(user, path, arr) {
         })
     } else {
         arr.forEach(elem => {
-            if(elem.name === 'Add post' || elem.name === 'My posts') {
+            if(elem.name === 'Add post' || elem.name === 'My posts' || elem.name === 'Profile') {
                 return;
             } else {
                 link.push(elem);
