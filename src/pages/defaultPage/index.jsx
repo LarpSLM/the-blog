@@ -9,6 +9,7 @@ import PostsContainer from "../post/indexContainer";
 import {connect} from "react-redux";
 import * as Action from "./action";
 import MyPosts from "../my-post";
+import Profile from "../profile";
 
 class DefaultPage extends Component {
     componentDidMount() {
@@ -27,6 +28,7 @@ class DefaultPage extends Component {
                         <Route path='/' exact={true} component={allPosts}/>
                         <Route path='/about' exact={true} component={About}/>
                         {this.props.user && <Route path='/new-post' exact={true} component={NewPost}/>}
+                        {this.props.user && <Route path='/profile' exact={true} component={Profile}/>}
                         <Route path='/post/:id' exact={true} component={PostsContainer}/>
                         <Route path='/my-posts' exact={true} component={MyPosts}/>
                     </Switch>

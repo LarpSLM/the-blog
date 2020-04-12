@@ -100,7 +100,7 @@
     height: 36px;
     width: 36px;
     border-radius: 18px;
-    background: #e1643b;
+    background: linear-gradient(90deg, #4fc0e8, #48cfaf);
     overflow: hidden;
 }
 

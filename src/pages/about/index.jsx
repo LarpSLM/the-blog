@@ -1,9 +1,10 @@
 import React from 'react';
+import style from './style.css';
 
 function About() {
     return (
-        <div>
-            About Page this
+        <div className={style.form}>
+            <h1>About Page</h1>
         </div>
     )
 }

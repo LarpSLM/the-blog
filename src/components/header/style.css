@@ -21,7 +21,7 @@
     height: 60px;
     border-radius: 30px;
     border: 3px solid #737373;
-    background: #e1643b;
+    background: linear-gradient(90deg, #4fc0e8, #48cfaf);
     overflow: hidden;
 }
 

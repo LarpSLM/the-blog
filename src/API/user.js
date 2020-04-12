@@ -28,7 +28,6 @@ export function logOut() {
         url: 'users/signout',
         method: 'GET',
     })
-
 }
 
 export function checkLogin(data) {
@@ -39,5 +38,11 @@ export function checkLogin(data) {
             login: data
         }
     })
+}
 
+export function getUserInfo(id) {
+    return axiosFetch({
+        url: `users/${id}`,
+        method: 'GET'
+    })
 }

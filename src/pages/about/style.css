@@ -1,0 +1,11 @@
+.form h1 {
+    width: 70%;
+    font-size: 3em;
+    font-family: 'Permanent Marker', sans-serif;
+    color: #2b2b2b;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1em 0;
+    text-shadow: 5px 5px 10px #d0d0d0, -5px -5px 10px #ffffff;
+    overflow: hidden;
+}

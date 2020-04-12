@@ -19,7 +19,6 @@ class MyPosts extends Component {
                 }
             }, 2000)
         }
-        // сервак не отвечает на запрос :(
     }
 
     onScroll = (event) => {
