@@ -48,9 +48,6 @@ class SignIn extends Component {
                             id="login"
                             value={this.props.dataForm.login}
                             onChange={this.props.changeFieldAction}
-                            // onBlur={() => {
-                            //     this.props.checkLogin(this.props.dataForm.login)
-                            // }}
                             error={this.changeErr(login)}
                         />
                     </div>

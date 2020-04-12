@@ -5,7 +5,7 @@ let initState = {
     },
     userInfo: null,
     isLoading: false,
-    modalWindow: false,
+    modalWindow: false, //false
     changeSuccess: false,
 }
 
@@ -21,6 +21,16 @@ export default function profileReducer (state = initState, action) {
                 ...state,
                 isLoading: false,
                 userInfo: action.payload
+            }
+        case 'PROFILE_MODAL_WINDOW_OPEN':
+            return {
+                ...state,
+                modalWindow: true,
+            }
+        case 'PROFILE_MODAL_WINDOW_CLOSE':
+            return {
+                ...state,
+                modalWindow: false
             }
         default:
             return state;

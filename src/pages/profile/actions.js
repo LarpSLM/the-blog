@@ -12,3 +12,11 @@ export const getUserInfo = (id) => {
         }
     }
 }
+
+export const openModalWindow = () => {
+    return {type: 'PROFILE_MODAL_WINDOW_OPEN'}
+}
+
+export const closeModalWindow = () => {
+    return {type: 'PROFILE_MODAL_WINDOW_CLOSE'}
+}

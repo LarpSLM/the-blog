@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(250px, 400px);
+    justify-content: center;
+    align-items: center;
+    padding-left: 300px;
+}
+
+.modalForm {
+    width: 100%;
+    height: auto;
+    background: #ededed;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.placeholder {
+    display: flex;
+    justify-content: space-between;
+}
+
+.placeholder .error {
+    color: #e21d26;
+}
+
+.inputDiv {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.inputDiv p {
+    text-transform: uppercase;
+    text-align: left;
+    margin: 0 0 5px 0;
+    color: #e1643b;
+    font-weight: bold;
+    font-size: .8em;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttons button {
+    display: block;
+    min-width: 0;
+    width: 40%;
+}

@@ -3,6 +3,7 @@ import style from "./style.css";
 import {connect} from "react-redux";
 import * as Actions from "./actions";
 import LoaderPage from "../../components/loaderPage/loaderPage";
+import Modalform from "../../components/modalForm";
 
 class Profile extends Component {
     componentDidMount() {
@@ -17,6 +18,14 @@ class Profile extends Component {
                 }
             }, 2000)
         }
+    }
+
+    openModalWindow = () => {
+        this.props.openModalWindow();
+    }
+
+    closeModalWindow = () => {
+        this.props.closeModalWindow();
     }
 
     render() {
@@ -40,7 +49,7 @@ class Profile extends Component {
                             <span>Like:</span>
                             <span>Dislike:</span>
                             <p>{userInfo.login}</p>
-                            <button>Change</button>
+                            <button onClick={this.openModalWindow}>Change</button>
                             <p>{userInfo.email}</p>
                             <p>{userInfo.firstName}</p>
                             <p>{userInfo.lastName}</p>
@@ -52,6 +61,9 @@ class Profile extends Component {
                         </div>
                     </div>
                 </div> : <LoaderPage/>}
+                {this.props.profile.modalWindow && <Modalform onClose={() => {
+                    this.closeModalWindow()
+                }}/>}
             </>
         );
     }
