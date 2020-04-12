@@ -6,7 +6,7 @@ let initState = {
     userInfo: null,
     isLoading: false,
     modalWindow: false, //false
-    changeSuccess: true,//false
+    changeSuccess: false,//false
 }
 
 export default function profileReducer (state = initState, action) {
