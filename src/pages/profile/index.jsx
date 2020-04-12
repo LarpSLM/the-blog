@@ -3,11 +3,12 @@ import style from "./style.css";
 import {connect} from "react-redux";
 import * as Actions from "./actions";
 import LoaderPage from "../../components/loaderPage/loaderPage";
-import Modalform from "../../components/modalForm";
+import ModalForm from "../../components/modalForm";
+import ModalMessage from "../../components/modalMessage";
 
 class Profile extends Component {
     componentDidMount() {
-        if(this.props.user !== null) {
+        if (this.props.user !== null) {
             const authorId = this.props.user.id
             this.props.getUserInfo(authorId)
         } else {
@@ -29,7 +30,7 @@ class Profile extends Component {
     }
 
     render() {
-        const {userInfo} = this.props.profile;
+        const {userInfo, dataForm} = this.props.profile;
         return (
             <>
                 {userInfo !== null ? <div className={style.wrapper}>
@@ -53,7 +54,7 @@ class Profile extends Component {
                             <p>{userInfo.email}</p>
                             <p>{userInfo.firstName}</p>
                             <p>{userInfo.lastName}</p>
-                            <p>{userInfo.registrationDate.slice(0,10)}</p>
+                            <p>{userInfo.registrationDate.slice(0, 10)}</p>
                             <p>{userInfo.postsCount}</p>
                             <p>{userInfo.likesCount}</p>
                             <p>{userInfo.dislikesCount}</p>
@@ -61,9 +62,15 @@ class Profile extends Component {
                         </div>
                     </div>
                 </div> : <LoaderPage/>}
-                {this.props.profile.modalWindow && <Modalform onClose={() => {
-                    this.closeModalWindow()
-                }}/>}
+                {this.props.profile.modalWindow && <ModalForm onClose={this.closeModalWindow}
+                                                              onChange={this.props.changeDataForm}
+                                                              current={dataForm.currentPassword}
+                                                              new={dataForm.newPassword}
+                                                              onSend={() => {
+                                                                  this.props.sendChangePassword(dataForm)
+                                                              }}
+                />}
+                {this.props.profile.changeSuccess && <ModalMessage message='password changed'/>}
             </>
         );
     }

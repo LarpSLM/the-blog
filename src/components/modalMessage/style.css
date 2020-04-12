@@ -1,0 +1,8 @@
+.wrapper {
+    position: absolute;
+    width: 30vw;
+    height: 10vh;
+    top: 20%;
+    right: 30vw;
+    background: #4fc0e8;
+}

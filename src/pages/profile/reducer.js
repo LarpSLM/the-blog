@@ -6,7 +6,7 @@ let initState = {
     userInfo: null,
     isLoading: false,
     modalWindow: false, //false
-    changeSuccess: false,
+    changeSuccess: true,//false
 }
 
 export default function profileReducer (state = initState, action) {
@@ -31,6 +31,24 @@ export default function profileReducer (state = initState, action) {
             return {
                 ...state,
                 modalWindow: false
+            }
+        case 'PROFILE_CHANGE_PASSWORD_FORM':
+            return {
+                ...state,
+                dataForm: {
+                    ...state.dataForm,
+                    [action.payload.fieldId]: action.payload.value
+                }
+            }
+        case 'PROFILE_CHANGE_PASSWORD_SUCCESS':
+            return {
+                ...state,
+                dataForm: {
+                    currentPassword: '',
+                    newPassword: ''
+                },
+                modalWindow: false,
+                changeSuccess: true
             }
         default:
             return state;
