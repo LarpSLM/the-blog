@@ -78,6 +78,14 @@ export default function postsReducer(state = initState, action) {
                     }
                 })
             }
+        case 'ALL-POST_DELETE_POST_SUCCESS':
+            const deleteItem = state.posts.findIndex(el => el.id === action.payload.id)
+            return {
+                ...state,
+                posts: [...state.posts.slice(0, deleteItem),
+                    ...state.posts.slice(deleteItem + 1) ]
+
+            }
         case 'ALL-POST_STATE_TO_DEFAULT':
             return {
                 ...state,

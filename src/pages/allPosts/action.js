@@ -54,6 +54,18 @@ export const increaseDislike = (id) => {
     }
 }
 
+export const deletePostItem = (id) => {
+    return async function (dispatch) {
+        try {
+            dispatch({type: 'ALL-POST_DELETE_POST_REQUEST'});
+            const response = await API.posts.deletePost(id);
+            dispatch({type: 'ALL-POST_DELETE_POST_SUCCESS', payload: response.data})
+        }catch (e) {
+            console.log(e)
+        }
+    }
+}
+
 export const setStateDefault = () => {
     return {type: 'ALL-POST_STATE_TO_DEFAULT'}
 }

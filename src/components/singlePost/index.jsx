@@ -21,7 +21,7 @@ export default function SinglePost(props) {
                 </div>
                 {props.author
                 && <div className={style.deleteButton}>
-                    <button onClick={props.onDelite}>
+                    <button onClick={props.onDelete}>
                         <i className="far fa-trash-alt"></i>
                     </button>
                 </div>}

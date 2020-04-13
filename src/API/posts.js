@@ -36,3 +36,10 @@ export function addDislike(id) {
         method: 'PUT'
     })
 }
+
+export function deletePost(id) {
+    return axiosFetch({
+        url: `posts/${id}`,
+        method: 'DELETE'
+    })
+}

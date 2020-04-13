@@ -49,12 +49,9 @@ class AllPosts extends Component {
                                                dislikesCount={el.dislikesCount}
                                                avatar={`http://school-blog.ru/images/${el.author.avatar}`}
                                                img={el.img}
-                                               onLike={() => {
-                                                   this.props.increaseLike(el.id)
-                                               }}
-                                               onDislike={() => {
-                                                   this.props.increaseDislike(el.id)
-                                               }}
+                                               onLike={() => {this.props.increaseLike(el.id)}}
+                                               onDislike={() => {this.props.increaseDislike(el.id)}}
+                                               onDelete={() => {this.props.deletePostItem(el.id)}}
                                                author={(this.props.user != null && this.props.user.id === el.author.id)
                                                && this.props.user.id}
                             />
