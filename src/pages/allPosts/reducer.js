@@ -44,7 +44,7 @@ export default function postsReducer(state = initState, action) {
                 ...state,
                 isLoading: false
             }
-        case 'INCREASE_LIKE_SUCCESS':
+        case 'ALL-POST_INCREASE_LIKE_SUCCESS':
             return {
                 ...state,
                 posts: state.posts.map(post => { //усложняем себе жизнь вставкой ключа с картинкой, так бы вернули action.payload и всё
@@ -61,7 +61,7 @@ export default function postsReducer(state = initState, action) {
                     }
                 })
             }
-        case 'INCREASE_DISLIKE_SUCCESS':
+        case 'ALL-POST_INCREASE_DISLIKE_SUCCESS':
             return {
                 ...state,
                 posts: state.posts.map(post => { //аналогично кейсу выше
@@ -77,6 +77,12 @@ export default function postsReducer(state = initState, action) {
                         return post;
                     }
                 })
+            }
+        case 'ALL-POST_STATE_TO_DEFAULT':
+            return {
+                ...state,
+                posts: [],
+                isLoading: false
             }
         default:
             return state;

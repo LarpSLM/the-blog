@@ -23,12 +23,8 @@ class AllPosts extends Component {
         }
     }
 
-    addLike = (id) => {
-        this.props.addLike(id);
-    }
-
-    addDislike = (id) => {
-        this.props.addDislike(id);
+    componentWillUnmount() {
+        this.props.setStateDefault()
     }
 
     render() {
@@ -53,14 +49,8 @@ class AllPosts extends Component {
                                                dislikesCount={el.dislikesCount}
                                                avatar={`http://school-blog.ru/images/${el.author.avatar}`}
                                                img={el.img}
-                                               onLike={() => {
-                                                   this.addLike(el.id)
-                                                 }
-                                               }
-                                               onDislike={() => {
-                                                   this.addDislike(el.id)
-                                                 }
-                                               }
+                                               onLike={() => {this.props.increaseLike(el.id)}}
+                                               onDislike={() => {this.props.increaseDislike(el.id)}}
                             />
 
                         })}
