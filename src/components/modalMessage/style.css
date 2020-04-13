@@ -1,8 +1,28 @@
 .wrapper {
     position: absolute;
-    width: 30vw;
-    height: 10vh;
-    top: 20%;
+    padding: 20px;
+    color: #e1643b;
+    font-weight: 600;
+    font-size: 0.8em;
+    top: 0;
     right: 0;
-    background: #4fc0e8;
+    background: #ededed;
+    border-radius: 5px;
+    box-shadow: -3px 1px 10px #d0d0d0;
+    animation: should 4s;
+}
+
+@keyframes should {
+    0% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }

@@ -37,3 +37,7 @@ export const sendChangePassword = (data) => {
         }
     }
 }
+
+export const modalMessageClose = () => {
+    return {type: 'PROFILE_MODAL_MESSAGE_CLOSE'}
+}

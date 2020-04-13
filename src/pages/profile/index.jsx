@@ -19,6 +19,8 @@ class Profile extends Component {
                 }
             }, 2000)
         }
+
+
     }
 
     openModalWindow = () => {
@@ -28,6 +30,13 @@ class Profile extends Component {
     closeModalWindow = () => {
         this.props.closeModalWindow();
     }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        setTimeout(() => {
+            this.props.modalMessageClose()
+        }, 3000)
+    }
+
 
     render() {
         const {userInfo, dataForm} = this.props.profile;
