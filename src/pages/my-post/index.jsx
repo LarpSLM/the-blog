@@ -24,26 +24,17 @@ class MyPosts extends Component {
     onScroll = (event) => {
         const {myPosts, isLoading, user, end} = this.props;
         const postsLength = myPosts.length;
-        const userId = user.id
+        const userId = user.id;
         const pageHeight = document.documentElement.clientHeight;
         const getBounding = document.getElementById('my-posts').getBoundingClientRect().bottom;
 
         if (getBounding <= pageHeight + (pageHeight / 10) && (!isLoading && !end)) {
             console.log('loading')
-            this.props.getScrollPostsAction(userId, postsLength) //не подключен
+            this.props.getScrollPostsAction(userId, postsLength);
         }
     }
 
-    addLike = (id) => { //не подключен
-        this.props.addLike(id);
-    }
-
-    addDislike = (id) => { //не подключен
-        this.props.addDislike(id);
-    }
-
     render() {
-        // console.log(this.props)
         const {myPosts, isLoading} = this.props;
         return (
             <div className={style.wrapper} onScroll={this.onScroll}>
@@ -65,8 +56,8 @@ class MyPosts extends Component {
                                                dislikesCount={el.dislikesCount}
                                                avatar={`http://school-blog.ru/images/${el.author.avatar}`}
                                                img={PostIMG()}
-                                               onLike={() => {this.addLike(el.id)}}
-                                               onDislike={() => {this.addDislike(el.id)}}
+                                               onLike={() => {this.props.increaseLike(el.id)}}
+                                               onDislike={() => {this.props.increaseDislike(el.id)}}
                                                author={el.author.id}
                             />
 

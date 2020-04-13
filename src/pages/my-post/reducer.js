@@ -31,6 +31,34 @@ export default function myPostReducer (state = initState, action) {
                 end: action.payload.length === 0 && true
             }
         }
+        case 'MY-POST_INCREASE_LIKE_SUCCESS':
+            return {
+                ...state,
+                myPosts: state.myPosts.map(post => {
+                    if (post.id === action.payload.id) {
+                        for (let key in post) {
+                            post[key] = action.payload[key];
+                        }
+                        return post
+                    } else {
+                        return post;
+                    }
+                })
+            }
+        case 'MY-POST_INCREASE_DISLIKE_SUCCESS':
+            return {
+                ...state,
+                myPosts: state.myPosts.map(post => {
+                    if (post.id === action.payload.id) {
+                        for (let key in post) {
+                            post[key] = action.payload[key];
+                        }
+                        return post
+                    } else {
+                        return post;
+                    }
+                })
+            }
         default:
             return state;
     }

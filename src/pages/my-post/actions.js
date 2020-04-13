@@ -24,3 +24,29 @@ export const getScrollPostsAction = (authorId, NPosts) => {
         }
     }
 };
+
+export const increaseLike = (id) => {
+    return async function (dispatch) {
+        try {
+            dispatch({type: 'MY-POST_INCREASE_LIKE_REQUEST'});
+            const response = await API.posts.addLike(id);
+            dispatch({type: 'MY-POST_INCREASE_LIKE_SUCCESS', payload: response.data})
+        } catch (e) {
+            dispatch({type: 'MY-POST_INCREASE_LIKE_FAIL'})
+            console.log(e);
+        }
+    }
+}
+
+export const increaseDislike = (id) => {
+    return async function (dispatch) {
+        try {
+            dispatch({type: 'MY-POST_INCREASE_DISLIKE_REQUEST'});
+            const response = await API.posts.addDislike(id);
+            dispatch({type: 'MY-POST_INCREASE_DISLIKE_SUCCESS', payload: response.data})
+        } catch (e) {
+            dispatch({type: 'MY-POST_INCREASE_DISLIKE_FAIL'})
+            console.log(e);
+        }
+    }
+}
