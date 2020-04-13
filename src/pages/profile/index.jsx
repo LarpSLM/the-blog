@@ -19,16 +19,6 @@ class Profile extends Component {
                 }
             }, 2000)
         }
-
-
-    }
-
-    openModalWindow = () => {
-        this.props.openModalWindow();
-    }
-
-    closeModalWindow = () => {
-        this.props.closeModalWindow();
     }
 
 
@@ -53,7 +43,7 @@ class Profile extends Component {
                             <span>Like:</span>
                             <span>Dislike:</span>
                             <p>{userInfo.login}</p>
-                            <button onClick={this.openModalWindow}>Change</button>
+                            <button onClick={this.props.openModalWindow}>Change</button>
                             <p>{userInfo.email}</p>
                             <p>{userInfo.firstName}</p>
                             <p>{userInfo.lastName}</p>
@@ -65,7 +55,7 @@ class Profile extends Component {
                         </div>
                     </div>
                 </div> : <LoaderPage/>}
-                {this.props.profile.modalWindow && <ModalForm onClose={this.closeModalWindow}
+                {this.props.profile.modalWindow && <ModalForm onClose={this.props.closeModalWindow}
                                                               onChange={this.props.changeDataForm}
                                                               current={dataForm.currentPassword}
                                                               new={dataForm.newPassword}
