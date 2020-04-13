@@ -12,13 +12,19 @@ export default function SinglePost(props) {
                 <div className={style.likes}>
                     <button onClick={props.onLike}>
                         <i className="far fa-heart"></i>
-                        <span >{props.likesCount}</span>
+                        <span>{props.likesCount}</span>
                     </button>
                     <button onClick={props.onDislike}>
                         <i className="fas fa-heart-broken"></i>
                         <span>{props.dislikesCount}</span>
                     </button>
                 </div>
+                {props.author
+                && <div className={style.deleteButton}>
+                    <button onClick={props.onDelite}>
+                        <i className="far fa-trash-alt"></i>
+                    </button>
+                </div>}
             </div>
             <Link to={`/post/${props.id}`}
                   className={style.title}>

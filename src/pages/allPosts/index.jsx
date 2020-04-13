@@ -12,7 +12,7 @@ class AllPosts extends Component {
     }
 
     onScroll = () => {
-        const { posts, isLoading } = this.props;
+        const {posts, isLoading} = this.props;
         const postsLength = posts.length;
         const pageHeight = document.documentElement.clientHeight;
         const getBounding = document.getElementById('all-posts').getBoundingClientRect().bottom;
@@ -28,7 +28,7 @@ class AllPosts extends Component {
     }
 
     render() {
-        const { isLoading, posts} = this.props;
+        const {isLoading, posts} = this.props;
         return (
             <div className={style.wrapper} onScroll={this.onScroll}>
                 <h1 className={style.header}>
@@ -49,8 +49,14 @@ class AllPosts extends Component {
                                                dislikesCount={el.dislikesCount}
                                                avatar={`http://school-blog.ru/images/${el.author.avatar}`}
                                                img={el.img}
-                                               onLike={() => {this.props.increaseLike(el.id)}}
-                                               onDislike={() => {this.props.increaseDislike(el.id)}}
+                                               onLike={() => {
+                                                   this.props.increaseLike(el.id)
+                                               }}
+                                               onDislike={() => {
+                                                   this.props.increaseDislike(el.id)
+                                               }}
+                                               author={(this.props.user != null && this.props.user.id === el.author.id)
+                                               && this.props.user.id}
                             />
 
                         })}
@@ -65,7 +71,8 @@ class AllPosts extends Component {
 
 const mapStateToProps = state => ({
     posts: state.allPosts.posts,
-    isLoading: state.allPosts.isLoading
+    isLoading: state.allPosts.isLoading,
+    user: state.app.user,
 });
 
 export default connect(mapStateToProps, Action)(AllPosts);

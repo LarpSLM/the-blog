@@ -8,7 +8,7 @@ import PostIMG from "src/assets/img-api";
 
 class MyPosts extends Component {
     componentDidMount() {
-        if(this.props.user !== null) {
+        if (this.props.user !== null) {
             const authorId = this.props.user.id
             this.props.getInitMyPost(authorId)
         } else {
@@ -22,7 +22,7 @@ class MyPosts extends Component {
     }
 
     onScroll = (event) => {
-        const { myPosts, isLoading } = this.props;
+        const {myPosts, isLoading} = this.props;
         const postsLength = myPosts.length;
         const pageHeight = document.documentElement.clientHeight;
         const getBounding = document.getElementById('my-posts').getBoundingClientRect().bottom;
@@ -64,14 +64,9 @@ class MyPosts extends Component {
                                                dislikesCount={el.dislikesCount}
                                                avatar={`http://school-blog.ru/images/${el.author.avatar}`}
                                                img={PostIMG()}
-                                               onLike={() => {
-                                                   this.addLike(el.id)
-                                               }
-                                               }
-                                               onDislike={() => {
-                                                   this.addDislike(el.id)
-                                               }
-                                               }
+                                               onLike={() => {this.addLike(el.id)}}
+                                               onDislike={() => {this.addDislike(el.id)}}
+                                               author={el.author.id}
                             />
 
                         })}
