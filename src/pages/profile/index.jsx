@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import * as Actions from "./actions";
 import LoaderPage from "../../components/loaderPage/loaderPage";
 import ModalForm from "../../components/modalForm";
-import ModalMessage from "../../components/modalMessage";
+import ModalMessage from "../../components/animatedMessage";
 
 class Profile extends Component {
     componentDidMount() {
@@ -29,12 +29,6 @@ class Profile extends Component {
 
     closeModalWindow = () => {
         this.props.closeModalWindow();
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        setTimeout(() => {
-            this.props.modalMessageClose()
-        }, 3000)
     }
 
 
@@ -79,7 +73,9 @@ class Profile extends Component {
                                                                   this.props.sendChangePassword(dataForm)
                                                               }}
                 />}
-                {this.props.profile.changeSuccess && <ModalMessage message='password changed'/>}
+                {this.props.profile.changeSuccess
+                && <ModalMessage content={<p>password changed</p>}
+                                 didMount={this.props.modalMessageClose}/>}
             </>
         );
     }

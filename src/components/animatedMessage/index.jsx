@@ -2,12 +2,20 @@ import React, {Component} from 'react';
 import {createPortal} from "react-dom";
 import style from "./style.css";
 
-function ModalWindow(props) {
-    return (
-        <div className={style.wrapper}>
-            <p>{props.message}</p>
-        </div>
-    )
+class ModalWindow extends Component {
+    componentDidMount() {
+        setTimeout(() => {
+            this.props.didMount()
+        }, 4000)
+    }
+
+    render() {
+        return (
+            <div className={style.wrapper}>
+                {this.props.content}
+            </div>
+        )
+    }
 
 }
 

@@ -31,6 +31,9 @@ export const sendChangePassword = (data) => {
             dispatch({type: 'PROFILE_CHANGE_PASSWORD_REQUEST'})
             const response = await API.user.changeUserPassword(data);
             dispatch({type: 'PROFILE_CHANGE_PASSWORD_SUCCESS', payload: response.data})
+            // setTimeout(() => {
+            //     this.props.modalMessageClose()
+            // }, 3000)
         } catch (e) {
             dispatch({type: 'PROFILE_CHANGE_PASSWORD_FAIL'})
             console.log(e)
