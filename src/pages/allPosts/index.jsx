@@ -12,12 +12,12 @@ class AllPosts extends Component {
     }
 
     onScroll = () => {
-        const {posts, isLoading} = this.props;
+        const {posts, isLoading, end} = this.props;
         const postsLength = posts.length;
         const pageHeight = document.documentElement.clientHeight;
         const getBounding = document.getElementById('all-posts').getBoundingClientRect().bottom;
 
-        if (getBounding <= pageHeight + (pageHeight / 10) && !isLoading) {
+        if (getBounding <= pageHeight + (pageHeight / 10) && (!isLoading && !end)) {
             console.log('loading')
             this.props.getScrollPostsAction(postsLength)
         }
@@ -70,6 +70,7 @@ const mapStateToProps = state => ({
     posts: state.allPosts.posts,
     isLoading: state.allPosts.isLoading,
     user: state.app.user,
+    end: state.allPosts.end
 });
 
 export default connect(mapStateToProps, Action)(AllPosts);

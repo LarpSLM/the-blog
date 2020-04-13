@@ -11,3 +11,16 @@ export const getInitMyPost = (authorId) => {
         }
     }
 }
+
+export const getScrollPostsAction = (authorId, NPosts) => {
+    return async function (dispatch) {
+        try {
+            dispatch({type: 'MY-POST_SCROLL_GET_POSTS_REQUESTS'});
+            const response = await API.posts.getList({authorId: authorId, offset: NPosts, offsetStep: 5});
+            dispatch({type: 'MY-POST_SCROLL_GET_POSTS_SUCCESS', payload: response.data})
+        } catch (e) {
+            dispatch({type: 'MY-POST_SCROLL_GET_POSTS_FAIL', payload: response.data});
+            console.log(e)
+        }
+    }
+};

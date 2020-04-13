@@ -3,6 +3,7 @@ import PostIMG from 'src/assets/img-api'
 let initState = {
     posts: [],
     isLoading: false,
+    end: false,
 };
 
 
@@ -38,6 +39,7 @@ export default function postsReducer(state = initState, action) {
                 ...state,
                 posts: [...state.posts, ...(modeImg(action.payload))],
                 isLoading: false,
+                end: action.payload.length === 0 && true
             };
         case 'ALL-POST_SCROLL_GET_POSTS_FAIL':
             return {
@@ -90,7 +92,8 @@ export default function postsReducer(state = initState, action) {
             return {
                 ...state,
                 posts: [],
-                isLoading: false
+                isLoading: false,
+                end: false
             }
         default:
             return state;

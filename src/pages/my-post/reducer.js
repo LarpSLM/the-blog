@@ -1,6 +1,7 @@
 let initState = {
     myPosts: [],
-    isLoading: false
+    isLoading: false,
+    end: false
 }
 
 export default function myPostReducer (state = initState, action) {
@@ -16,6 +17,20 @@ export default function myPostReducer (state = initState, action) {
                 isLoading: false,
                 myPosts: action.payload
             }
+        case 'MY-POST_SCROLL_GET_POSTS_REQUESTS': {
+            return {
+                ...state,
+                isLoading: true,
+            }
+        }
+        case 'MY-POST_SCROLL_GET_POSTS_SUCCESS': {
+            return {
+                ...state,
+                myPosts: [...state.myPosts, ...action.payload],
+                isLoading: false,
+                end: action.payload.length === 0 && true
+            }
+        }
         default:
             return state;
     }

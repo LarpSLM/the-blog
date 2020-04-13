@@ -22,14 +22,15 @@ class MyPosts extends Component {
     }
 
     onScroll = (event) => {
-        const {myPosts, isLoading} = this.props;
+        const {myPosts, isLoading, user, end} = this.props;
         const postsLength = myPosts.length;
+        const userId = user.id
         const pageHeight = document.documentElement.clientHeight;
         const getBounding = document.getElementById('my-posts').getBoundingClientRect().bottom;
 
-        if (getBounding <= pageHeight + (pageHeight / 10) && !isLoading) {
+        if (getBounding <= pageHeight + (pageHeight / 10) && (!isLoading && !end)) {
             console.log('loading')
-            this.props.getScrollMyPostsAction(postsLength) //не подключен
+            this.props.getScrollPostsAction(userId, postsLength) //не подключен
         }
     }
 
@@ -84,6 +85,7 @@ const mapStateToProps = (state) => {
     return {
         myPosts: state.myPost.myPosts,
         isLoading: state.myPost.isLoading,
+        end: state.myPost.end,
         user: state.app.user,
     }
 }
