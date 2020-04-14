@@ -4,7 +4,7 @@ let initState = {
     end: false
 }
 
-export default function myPostReducer (state = initState, action) {
+export default function myPostReducer(state = initState, action) {
     switch (action.type) {
         case 'MY-POST_INIT_REQUEST':
             return {
@@ -58,6 +58,21 @@ export default function myPostReducer (state = initState, action) {
                         return post;
                     }
                 })
+            }
+        case 'MY-POST_DELETE_POST_SUCCESS':
+            const deleteItem = state.myPosts.findIndex(el => el.id === action.payload.id)
+            return {
+                ...state,
+                myPosts: [...state.myPosts.slice(0, deleteItem),
+                    ...state.myPosts.slice(deleteItem + 1) ]
+
+            }
+        case 'MY-POST_STATE_TO_DEFAULT':
+            return {
+                ...state,
+                myPosts: [],
+                isLoading: false,
+                end: false
             }
         default:
             return state;

@@ -21,6 +21,10 @@ class MyPosts extends Component {
         }
     }
 
+    componentWillUnmount() {
+        this.props.setStateDefault()
+    }
+
     onScroll = (event) => {
         const {myPosts, isLoading, user, end} = this.props;
         const postsLength = myPosts.length;
@@ -58,6 +62,7 @@ class MyPosts extends Component {
                                                img={PostIMG()}
                                                onLike={() => {this.props.increaseLike(el.id)}}
                                                onDislike={() => {this.props.increaseDislike(el.id)}}
+                                               onDelete={() => {this.props.deletePostItem(el.id)}}
                                                author={el.author.id}
                             />
 
