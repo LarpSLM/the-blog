@@ -11,15 +11,21 @@ export default function Post(props) {
                         <img src={props.img} alt="no-img"/>
                         <div>
                             <div className={style.likes}>
-                                <button>
+                                <button onClick={props.onLike}>
                                     <i className="far fa-heart"></i>
                                     <span>{props.likesCount}</span>
                                 </button>
-                                <button>
+                                <button onClick={props.onDislike}>
                                     <i className="fas fa-heart-broken"></i>
                                     <span>{props.dislikesCount}</span>
                                 </button>
                             </div>
+                            {props.author
+                            && <div className={style.deleteButton}>
+                                <button onClick={props.onDelete}>
+                                    <i className="far fa-trash-alt"></i>
+                                </button>
+                            </div>}
                         </div>
                     </div>
                 </div>

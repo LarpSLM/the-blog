@@ -62,7 +62,34 @@
     padding-top: 5px;
 }
 
-.likes button:hover > i {
+.deleteButton {
+    position: absolute;
+    background: #ededed;
+    border-radius: 15px;
+    right: -20px;
+    bottom: -20px ;
+    box-shadow: 3px 1px 10px #d0d0d0;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.deleteButton button {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deleteButton button:active {
+    box-shadow: none;
+}
+
+.likes button:hover > i,
+.deleteButton button:hover > i {
     color: red;
 }
 
@@ -123,5 +150,5 @@
     color: #737373;
     overflow: hidden;
     height: 100%;
-    white-space: pre;
+    white-space: pre-line;
 }

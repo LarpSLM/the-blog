@@ -4,6 +4,7 @@ import * as Actions from "./actions";
 import LoaderPage from "../../components/loaderPage/loaderPage";
 import PostIMG from "../../assets/img-api";
 import Post from "./index";
+import SinglePost from "../../components/singlePost";
 
 class PostsContainer extends Component {
     componentDidMount() {
@@ -16,8 +17,7 @@ class PostsContainer extends Component {
     }
 
     render() {
-        const {data} = this.props;
-        console.log(data);
+        const {data, user} = this.props;
         return (
             <>
                 {
@@ -33,7 +33,14 @@ class PostsContainer extends Component {
                                   dislikesCount={data.dislikesCount}
                                   likesCount={data.likesCount}
                                   avatar={`http://school-blog.ru/images/${data.author.avatar}`}
-                                  img={PostIMG()}/>
+                                  img={PostIMG()}
+                                  onLike={() => {this.props.increaseLike(data.id)}}
+                                  onDislike={() => {this.props.increaseDislike(data.id)}}
+                                  onDelete={() => {this.props.deletePostItem(data.id)}}
+                                  author={(user != null && user.id === data.author.id)
+                                  && this.props.user.id}
+                            />
+
                         </>
                         : <LoaderPage/>
                 }
@@ -44,7 +51,8 @@ class PostsContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        data: state.post.data
+        data: state.post.data,
+        user: state.app.user
     }
 };
 
