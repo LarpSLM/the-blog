@@ -4,6 +4,7 @@ import * as Action from './action';
 import style from './style.css';
 import Loader from "../../components/loader/loader";
 import SinglePost from "../../components/singlePost";
+import ModalMessage from "../../components/animatedMessage";
 
 
 class AllPosts extends Component {
@@ -28,7 +29,7 @@ class AllPosts extends Component {
     }
 
     render() {
-        const {isLoading, posts} = this.props;
+        const {isLoading, posts, modalMessage} = this.props;
         return (
             <div className={style.wrapper} onScroll={this.onScroll}>
                 <h1 className={style.header}>
@@ -58,19 +59,20 @@ class AllPosts extends Component {
 
                         })}
                 </div>
-                {
-                    (isLoading && posts.length > 0) && <Loader/>
-                }
+                {(isLoading && posts.length > 0) && <Loader/>}
+                {modalMessage && <ModalMessage content={<p>Post delete</p>}
+                                               didMountModalMessage={() => this.props.didMountModalMessage()}/>}
             </div>
         )
     }
 }
 
 const mapStateToProps = state => ({
+    user: state.app.user,
     posts: state.allPosts.posts,
     isLoading: state.allPosts.isLoading,
-    user: state.app.user,
-    end: state.allPosts.end
+    end: state.allPosts.end,
+    modalMessage: state.allPosts.modalMessage
 });
 
 export default connect(mapStateToProps, Action)(AllPosts);

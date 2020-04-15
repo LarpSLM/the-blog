@@ -46,11 +46,16 @@ export const deletePostItem = (id) => {
             dispatch({type: 'POST-PAGE_DELETE_POST_REQUEST'});
             const response = await API.posts.deletePost(id);
             dispatch({type: 'POST-PAGE_DELETE_POST_SUCCESS', payload: response.data})
+            dispatch({type: 'POST_SHOW_MODAL_MESSAGE'});
             dispatch(push('/'));
         }catch (e) {
             console.log(e)
         }
     }
+}
+
+export const didMountModalMessage = () => {
+    return {type: 'POST_CLOSE_MODAL_MESSAGE'}
 }
 
 export const unMountPostAction = () => {

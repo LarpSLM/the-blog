@@ -8,7 +8,7 @@ import allPosts from "src/pages/allPosts";
 import PostsContainer from "../post/indexContainer";
 import {connect} from "react-redux";
 import * as Action from "./action";
-import MyPosts from "../my-post";
+import MyPosts from "../my-posts";
 import Profile from "../profile";
 
 class DefaultPage extends Component {

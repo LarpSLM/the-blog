@@ -5,6 +5,7 @@ import style from "../allPosts/style.css";
 import Loader from "../../components/loader/loader";
 import SinglePost from "../../components/singlePost";
 import PostIMG from "src/assets/img-api";
+import ModalMessage from "../../components/animatedMessage";
 
 class MyPosts extends Component {
     componentDidMount() {
@@ -39,7 +40,7 @@ class MyPosts extends Component {
     }
 
     render() {
-        const {myPosts, isLoading} = this.props;
+        const {myPosts, isLoading, modalMessage} = this.props;
         return (
             <div className={style.wrapper} onScroll={this.onScroll}>
                 <h1 className={style.header}>
@@ -71,6 +72,8 @@ class MyPosts extends Component {
                 {
                     (isLoading && myPosts.length > 0) && <Loader/>
                 }
+                {modalMessage && <ModalMessage content={<p>Post delete</p>}
+                                               didMountModalMessage={() => this.props.didMountModalMessage()}/>}
             </div>
         )
     }
@@ -79,9 +82,10 @@ class MyPosts extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        myPosts: state.myPost.myPosts,
-        isLoading: state.myPost.isLoading,
-        end: state.myPost.end,
+        myPosts: state.myPosts.myPosts,
+        isLoading: state.myPosts.isLoading,
+        end: state.myPosts.end,
+        modalMessage: state.myPosts.modalMessage,
         user: state.app.user,
     }
 }

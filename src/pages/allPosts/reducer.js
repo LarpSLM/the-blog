@@ -4,6 +4,8 @@ let initState = {
     posts: [],
     isLoading: false,
     end: false,
+    modalMessage: false,
+
 };
 
 
@@ -87,6 +89,12 @@ export default function postsReducer(state = initState, action) {
                 posts: [...state.posts.slice(0, deleteItem),
                     ...state.posts.slice(deleteItem + 1) ]
 
+            }
+        case 'ALL-POST_SHOW_MODAL_MESSAGE':
+        case 'ALL-POST_CLOSE_MODAL_MESSAGE':
+            return {
+                ...state,
+                modalMessage: !state.modalMessage
             }
         case 'ALL-POST_STATE_TO_DEFAULT':
             return {

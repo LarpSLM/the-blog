@@ -4,7 +4,7 @@ import * as Actions from "./actions";
 import LoaderPage from "../../components/loaderPage/loaderPage";
 import PostIMG from "../../assets/img-api";
 import Post from "./index";
-import SinglePost from "../../components/singlePost";
+import ModalMessage from "../../components/animatedMessage";
 
 class PostsContainer extends Component {
     componentDidMount() {
@@ -17,7 +17,7 @@ class PostsContainer extends Component {
     }
 
     render() {
-        const {data, user} = this.props;
+        const {data, user, modalMessage} = this.props;
         return (
             <>
                 {
@@ -44,6 +44,8 @@ class PostsContainer extends Component {
                         </>
                         : <LoaderPage/>
                 }
+                {modalMessage && <ModalMessage content={<p>Post delete</p>}
+                                               didMountModalMessage={() => this.props.didMountModalMessage()}/>}
             </>
         )
     }
@@ -52,6 +54,7 @@ class PostsContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         data: state.post.data,
+        modalMessage: state.post.modalMessage,
         user: state.app.user
     }
 };

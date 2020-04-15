@@ -5,7 +5,7 @@ import style from "./style.css";
 class ModalWindow extends Component {
     componentDidMount() {
         setTimeout(() => {
-            this.props.didMount()
+            this.props.didMountModalMessage()
         }, 4000)
     }
 

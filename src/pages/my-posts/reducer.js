@@ -1,7 +1,8 @@
 let initState = {
     myPosts: [],
     isLoading: false,
-    end: false
+    end: false,
+    modalMessage: false,
 }
 
 export default function myPostReducer(state = initState, action) {
@@ -73,6 +74,12 @@ export default function myPostReducer(state = initState, action) {
                 myPosts: [],
                 isLoading: false,
                 end: false
+            }
+        case 'MY-POST_SHOW_MODAL_MESSAGE':
+        case 'MY-POST_CLOSE_MODAL_MESSAGE':
+            return {
+                ...state,
+                modalMessage: !state.modalMessage
             }
         default:
             return state;

@@ -57,6 +57,7 @@ export const deletePostItem = (id) => {
             dispatch({type: 'MY-POST_DELETE_POST_REQUEST'});
             const response = await API.posts.deletePost(id);
             dispatch({type: 'MY-POST_DELETE_POST_SUCCESS', payload: response.data})
+            dispatch({type: 'MY-POST_SHOW_MODAL_MESSAGE'});
         }catch (e) {
             console.log(e)
         }
@@ -65,4 +66,8 @@ export const deletePostItem = (id) => {
 
 export const setStateDefault = () => {
     return {type: 'MY-POST_STATE_TO_DEFAULT'}
+}
+
+export const didMountModalMessage = () => {
+    return {type: 'MY-POST_CLOSE_MODAL_MESSAGE'}
 }

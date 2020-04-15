@@ -1,5 +1,6 @@
 const initState = {
-    data: null
+    data: null,
+    modalMessage: false
 };
 
 export default function singlePostReducer(state = initState, action) {
@@ -17,6 +18,12 @@ export default function singlePostReducer(state = initState, action) {
                 ...state,
                 data: null
             };
+        case 'POST_SHOW_MODAL_MESSAGE':
+        case 'POST_CLOSE_MODAL_MESSAGE':
+            return {
+                ...state,
+                modalMessage: !state.modalMessage
+            }
         default:
             return state;
     }
