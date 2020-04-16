@@ -35,9 +35,15 @@ class Profile extends Component {
         }
     }
 
+    showErrors = (arg) => {
+        if (arg === '' || arg.length < 3) {
+            return 'error'
+        }
+    }
+
 
     render() {
-        const {userInfo, dataForm} = this.props.profile;
+        const {userInfo, dataForm, errors, responseStatus} = this.props.profile;
         return (
             <>
                 {userInfo !== null ? <div className={style.wrapper}>
@@ -71,15 +77,16 @@ class Profile extends Component {
                 </div> : <LoaderPage/>}
                 {this.props.profile.modalWindow && <ModalForm onClose={this.props.closeModalWindow}
                                                               onChange={this.changeDataForm}
-                                                              current={dataForm.currentPassword}
-                                                              new={dataForm.newPassword}
+                                                              dataForm={dataForm}
+                                                              errors={errors}
                                                               onSend={() => {
                                                                   this.props.sendChangePassword(dataForm)
                                                               }}
                                                               notificationErrors={this.notificationErrors}
+                                                              showErrors={this.showErrors}
                 />}
                 {this.props.profile.changeSuccess
-                && <ModalMessage content={<p>password changed</p>}
+                && <ModalMessage content={responseStatus.success ? <p>password changed</p> : <p>current password incorrect</p>}
                                  didMountModalMessage={this.props.modalMessageClose}/>}
             </>
         );

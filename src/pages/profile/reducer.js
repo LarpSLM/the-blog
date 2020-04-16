@@ -7,6 +7,7 @@ let initState = {
         currentPassword: false,
         newPassword: false
     },
+    responseStatus: null,
     userInfo: null,
     isLoading: false,
     modalWindow: false,
@@ -38,6 +39,18 @@ export default function profileReducer (state = initState, action) {
                 dataForm: {
                     ...state.dataForm,
                     [action.payload.fieldId]: action.payload.value
+                },
+                errors: {
+                    ...state.errors,
+                    [action.payload.fieldId]: false
+                }
+            }
+        case 'PROFILE_CHANGE_PASSWORD_REQUEST':
+            return {
+                ...state,
+                errors: {
+                    currentPassword: state.dataForm.currentPassword,
+                    newPassword: state.dataForm.newPassword
                 }
             }
         case 'PROFILE_CHANGE_PASSWORD_SUCCESS':
@@ -47,6 +60,7 @@ export default function profileReducer (state = initState, action) {
                     currentPassword: '',
                     newPassword: ''
                 },
+                responseStatus: action.payload,
                 modalWindow: false,
                 changeSuccess: true
             }

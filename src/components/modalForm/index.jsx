@@ -13,25 +13,25 @@ function ModalWindow (props) {
                 <div className={style.inputDiv}>
                     <div className={style.placeholder}>
                         <p>current</p>
-                        {props.notificationErrors(props.current)}
+                        {props.notificationErrors(props.errors.currentPassword)}
                     </div>
                     <Input
                         id="currentPassword"
-                        value={props.current}
+                        value={props.dataForm.currentPassword}
                         onChange={props.onChange}
-                        // error={changeErr(login)}
+                        error={props.showErrors(props.errors.currentPassword)}
                     />
                 </div>
                 <div className={style.inputDiv}>
                     <div className={style.placeholder}>
                         <p>new</p>
-                        {props.notificationErrors(props.new)}
+                        {props.notificationErrors(props.errors.newPassword)}
                     </div>
                     <Input
                         id="newPassword"
-                        value={props.new}
+                        value={props.dataForm.newPassword}
                         onChange={props.onChange}
-                        // error={this.changeErr(password)}
+                        error={props.showErrors(props.errors.newPassword)}
                     />
                 </div>
                 <div className={style.buttons}>
