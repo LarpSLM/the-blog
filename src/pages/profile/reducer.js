@@ -3,6 +3,10 @@ let initState = {
         currentPassword: '',
         newPassword: ''
     },
+    errors: {
+        currentPassword: false,
+        newPassword: false
+    },
     userInfo: null,
     isLoading: false,
     modalWindow: false,

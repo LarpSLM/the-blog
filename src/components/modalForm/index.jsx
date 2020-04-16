@@ -13,7 +13,7 @@ function ModalWindow (props) {
                 <div className={style.inputDiv}>
                     <div className={style.placeholder}>
                         <p>current</p>
-                        {/*{changeIsRequired(login)}*/}
+                        {props.notificationErrors(props.current)}
                     </div>
                     <Input
                         id="currentPassword"
@@ -25,7 +25,7 @@ function ModalWindow (props) {
                 <div className={style.inputDiv}>
                     <div className={style.placeholder}>
                         <p>new</p>
-                        {/*{changeIsRequired(password)}*/}
+                        {props.notificationErrors(props.new)}
                     </div>
                     <Input
                         id="newPassword"

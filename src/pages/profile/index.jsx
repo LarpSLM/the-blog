@@ -21,6 +21,20 @@ class Profile extends Component {
         }
     }
 
+    changeDataForm = ({ fieldId, value }) => {
+        const result = value.replace(/\W/gm, '');
+        this.props.changeDataForm({ fieldId, value: result })
+    }
+
+    notificationErrors = (arg) => {
+        if (arg === '') {
+            return <p>is required</p>
+        }
+        if (arg.length < 3) {
+            return <p>minlength 3</p>
+        }
+    }
+
 
     render() {
         const {userInfo, dataForm} = this.props.profile;
@@ -56,16 +70,17 @@ class Profile extends Component {
                     </div>
                 </div> : <LoaderPage/>}
                 {this.props.profile.modalWindow && <ModalForm onClose={this.props.closeModalWindow}
-                                                              onChange={this.props.changeDataForm}
+                                                              onChange={this.changeDataForm}
                                                               current={dataForm.currentPassword}
                                                               new={dataForm.newPassword}
                                                               onSend={() => {
                                                                   this.props.sendChangePassword(dataForm)
                                                               }}
+                                                              notificationErrors={this.notificationErrors}
                 />}
                 {this.props.profile.changeSuccess
                 && <ModalMessage content={<p>password changed</p>}
-                                 didMount={this.props.modalMessageClose}/>}
+                                 didMountModalMessage={this.props.modalMessageClose}/>}
             </>
         );
     }

@@ -1,4 +1,4 @@
-import API from "src/API";
+import API from "src/API/index";
 
 export const getUserInfo = (id) => {
     return async function (dispatch) {
