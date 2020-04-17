@@ -11,6 +11,7 @@ import postsReducer from "./pages/allPosts/reducer";
 import singlePostReducer from "./pages/post/reducer";
 import myPostReducer from "./pages/my-posts/reducer";
 import profileReducer from "./pages/profile/reducer";
+import aboutReducer from "./pages/about/reducer";
 
 const logger = createLogger({
   collapsed: true
@@ -27,7 +28,8 @@ const createRootReducer = (history) => combineReducers({
   allPosts: postsReducer,
   post: singlePostReducer,
   myPosts: myPostReducer,
-  profile: profileReducer
+  profile: profileReducer,
+  about: aboutReducer
 });
 
 

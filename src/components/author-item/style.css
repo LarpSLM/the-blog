@@ -1,0 +1,31 @@
+.author {
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    background: #ededed;
+    text-align: center;
+}
+
+.avatar {
+    background: url("../../assets/user.jpg") top no-repeat;
+    background-size: cover;
+    height: 250px;
+}
+
+.author img {
+    width: 100%;
+}
+
+.author h3 {
+    font-family: 'Permanent Marker', sans-serif;
+    margin: 0.67em;
+    color: #2b2b2b;
+}
+
+.author p {
+    font-weight: 600;
+    color: #737373;
+    margin-bottom: .75rem;
+}
+
+.author p:last-child {
+    color: #e1643b;
+}

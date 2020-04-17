@@ -53,5 +53,11 @@ export function changeUserPassword(data) {
         method: 'PUT',
         data
     })
+}
 
+export function getAuthors() {
+    return axiosFetch({
+        url: `users`,
+        method: 'GET'
+    })
 }
